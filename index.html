@@ -1,0 +1,2549 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AMC Analytical Workshop — British &amp; American Imperialism (45 min)</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Google Fonts: Inter & Merriweather for scholarly legibility -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Merriweather', 'serif'],
+                    },
+                    colors: {
+                        royal: {
+                            navy: '#012169',
+                            dark: '#001547',
+                            light: '#eef4ff',
+                            border: '#bfd4ff'
+                        },
+                        us: {
+                            navy: '#0A3161',
+                            crimson: '#B31942',
+                            light: '#fff1f3',
+                            border: '#fecdd6'
+                        },
+                        uk: {
+                            crimson: '#C8102E'
+                        },
+                        brass: {
+                            DEFAULT: '#C5A059',
+                            light: '#fbf7ee',
+                            border: '#e7d5ad',
+                            dark: '#8c6b2b'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Transatlantic atlas background with ultra-subtle meridian lines & colour wash */
+        body {
+            background-color: #f8fafc;
+            background-image: 
+                radial-gradient(circle at 0% 0%, rgba(1, 33, 105, 0.045) 0%, transparent 45%),
+                radial-gradient(circle at 100% 0%, rgba(179, 25, 66, 0.045) 0%, transparent 45%),
+                linear-gradient(to right, rgba(1, 33, 105, 0.025) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(1, 33, 105, 0.025) 1px, transparent 1px);
+            background-size: 100% 100%, 100% 100%, 48px 48px, 48px 48px;
+            color: #0f172a;
+        }
+        .step-transition {
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        textarea:focus, input:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(1, 33, 105, 0.16);
+        }
+        mark.reinvested-highlight {
+            background-color: #fef08a;
+            color: #012169;
+            font-weight: 700;
+            padding: 1px 4px;
+            border-radius: 4px;
+            border-bottom: 2px solid #C8102E;
+        }
+        /* Interactive Click-to-Define Word Styling */
+        .dict-term {
+            border-bottom: 1.5px dotted #012169;
+            color: inherit;
+            cursor: help;
+            padding: 0 1px;
+            border-radius: 3px;
+            transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+        }
+        .dict-term:hover, .dict-term:focus {
+            background-color: #eef4ff;
+            color: #012169;
+            border-bottom: 1.5px solid #C8102E;
+            outline: none;
+        }
+        /* Subtle scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 9999px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col antialiased selection:bg-royal-navy selection:text-white">
+
+    <!-- TRANSATLANTIC RIBBON BAR (UK & US COLOURS) -->
+    <div class="h-1.5 w-full flex overflow-hidden">
+        <div class="w-1/2 h-full flex">
+            <div class="w-1/3 h-full bg-[#012169]"></div>
+            <div class="w-1/3 h-full bg-white"></div>
+            <div class="w-1/3 h-full bg-[#C8102E]"></div>
+        </div>
+        <div class="w-1/2 h-full flex">
+            <div class="w-1/3 h-full bg-[#B31942]"></div>
+            <div class="w-1/3 h-full bg-white"></div>
+            <div class="w-1/3 h-full bg-[#0A3161]"></div>
+        </div>
+    </div>
+
+    <!-- STICKY HEADER WITH TRANSATLANTIC MOTIFS, TIMER & STEPPER -->
+    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm relative overflow-hidden">
+        
+        <!-- Subtle Left Decorative SVG Motif: Stylized Union Jack Geometry -->
+        <svg class="hidden xl:block absolute left-0 top-0 h-full w-44 opacity-[0.07] pointer-events-none" viewBox="0 0 180 120" preserveAspectRatio="none" aria-hidden="true">
+            <rect width="180" height="120" fill="#012169"/>
+            <path d="M0,0 L180,120 M180,0 L0,120" stroke="#ffffff" stroke-width="22"/>
+            <path d="M0,0 L180,120 M180,0 L0,120" stroke="#C8102E" stroke-width="10"/>
+            <path d="M90,0 V120 M0,60 H180" stroke="#ffffff" stroke-width="30"/>
+            <path d="M90,0 V120 M0,60 H180" stroke="#C8102E" stroke-width="18"/>
+        </svg>
+
+        <!-- Subtle Right Decorative SVG Motif: Stylized Stars & Stripes Geometry -->
+        <svg class="hidden xl:block absolute right-0 top-0 h-full w-44 opacity-[0.07] pointer-events-none" viewBox="0 0 180 120" preserveAspectRatio="none" aria-hidden="true">
+            <rect width="180" height="120" fill="#ffffff"/>
+            <g fill="#B31942">
+                <rect y="0" width="180" height="14"/>
+                <rect y="28" width="180" height="14"/>
+                <rect y="56" width="180" height="14"/>
+                <rect y="84" width="180" height="14"/>
+                <rect y="110" width="180" height="10"/>
+            </g>
+            <rect x="95" y="0" width="85" height="70" fill="#0A3161"/>
+            <g fill="#ffffff">
+                <circle cx="112" cy="16" r="3.5"/><circle cx="136" cy="16" r="3.5"/><circle cx="160" cy="16" r="3.5"/>
+                <circle cx="124" cy="34" r="3.5"/><circle cx="148" cy="34" r="3.5"/>
+                <circle cx="112" cy="52" r="3.5"/><circle cx="136" cy="52" r="3.5"/><circle cx="160" cy="52" r="3.5"/>
+            </g>
+        </svg>
+
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3 relative z-10">
+            <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-3">
+                
+                <!-- Title, Crest & Pedagogical Context -->
+                <div class="flex items-start sm:items-center gap-3.5">
+                    <!-- Transatlantic Emblem Crest -->
+                    <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-[#012169] via-[#0A3161] to-[#B31942] p-0.5 shadow-sm shrink-0">
+                        <div class="w-full h-full bg-white rounded-[10px] flex flex-col items-center justify-center">
+                            <span class="font-serif font-bold text-xs tracking-tight text-[#012169] leading-none">AMC</span>
+                            <div class="flex items-center gap-1 mt-1">
+                                <span class="w-2 h-1 rounded-xs bg-[#012169]"></span>
+                                <span class="w-1.5 h-1.5 rounded-full bg-[#C5A059]"></span>
+                                <span class="w-2 h-1 rounded-xs bg-[#B31942]"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="flex flex-wrap items-center gap-2">
+                            <span class="text-[11px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-royal-light text-royal-navy border border-royal-border">
+                                Terminale AMC • Target Level: C1
+                            </span>
+                            <span class="text-xs text-slate-500 hidden sm:inline">
+                                Theme: <em>Relation au monde</em> — Power &amp; Influence
+                            </span>
+                            <span id="save-status-badge" class="text-[11px] text-emerald-700 bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded-full hidden sm:inline-flex items-center gap-1">
+                                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Saved locally
+                            </span>
+                            <span id="tab-exit-badge" title="Tracks how many times you leave this browser tab during the workshop" class="text-[11px] font-semibold text-slate-600 bg-slate-100 border border-slate-200 px-2 py-0.5 rounded-full inline-flex items-center gap-1">
+                                <span class="w-1.5 h-1.5 rounded-full bg-[#C8102E]"></span>
+                                <span>Tab exits: <strong id="tab-exit-count">0</strong></span>
+                            </span>
+                        </div>
+                        <h1 class="text-base sm:text-lg font-extrabold text-slate-900 leading-tight mt-0.5">
+                            Comparative Analytical Paragraph &amp; Contemporary Echo
+                        </h1>
+                        <!-- Academic Integrity & Anti-AI Notice in British English -->
+                        <p class="mt-1 text-[11px] sm:text-xs text-slate-700 bg-amber-50/90 border-l-4 border-[#C8102E] px-2.5 py-1 rounded-r-lg leading-snug">
+                            <strong class="text-[#012169]">No AI shortcut:</strong> Using AI here makes no sense if you genuinely want to progress—methodological guidance, structured prompts, and a C1 British English dictionary are already built right into this page.
+                        </p>
+                        <!-- Collapsible Scaffolding Balance Note (Teacher & Student) -->
+                        <div class="mt-1.5">
+                            <button type="button" onclick="toggleScaffoldingBalance()" class="inline-flex items-center gap-1.5 text-[11px] font-semibold text-[#012169] hover:text-[#B31942] transition">
+                                <span>Scaffolding Balance Note (Teacher &amp; Student)</span>
+                                <span id="scaffolding-balance-arrow" class="text-[10px]">▸</span>
+                            </button>
+                            <div id="scaffolding-balance-panel" class="hidden mt-1.5 p-2.5 rounded-xl bg-slate-50 border border-slate-200 text-[11px] text-slate-700 leading-relaxed">
+                                <strong>Pedagogical audit:</strong> Every scaffold in this workshop supports <em>how</em> you think, structure, verify, and choose precise C1 vocabulary—never by supplying pre-written paragraphs or automated answers. All comparison, reasoning, and phrasing remain yours.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Smart 45-Minute Timer & British Dictionary Utility Module -->
+                <div class="flex flex-wrap items-center justify-between sm:justify-end gap-2 sm:gap-2.5">
+                    <!-- Persistent C1 British English Dictionary Trigger -->
+                    <button type="button" onclick="openDictionaryDrawer()" class="px-3 py-2 rounded-xl bg-royal-light hover:bg-blue-100 border border-royal-border text-[#012169] text-xs font-extrabold transition flex items-center gap-1.5 shadow-2xs" title="Open the C1 British English Dictionary &amp; Glossary">
+                        <svg class="w-4 h-4 text-[#C8102E] shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+                        <span>UK Dictionary</span>
+                        <span class="hidden md:inline-block text-[10px] font-bold bg-white text-[#012169] px-1.5 py-0.2 rounded border border-royal-border">32 terms</span>
+                    </button>
+
+                    <!-- Timer Box -->
+                    <div class="flex items-center gap-2 sm:gap-3 bg-slate-50/90 border border-slate-200 rounded-xl px-3.5 py-1.5 shadow-2xs">
+                        <div class="flex items-center gap-2.5">
+                            <span id="phase-indicator-dot" class="w-2.5 h-2.5 rounded-full bg-[#012169]"></span>
+                            <div class="text-left">
+                                <div id="current-phase-label" class="text-[11px] font-bold uppercase tracking-wide text-slate-500 leading-none">
+                                    Step 1 (0–8m): Note-Sorting &amp; Framing
+                                </div>
+                                <div id="timer-display" class="text-xl font-mono font-extrabold text-slate-900 tracking-tight leading-tight">
+                                    45:00
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-1.5 border-l border-slate-200 pl-2.5">
+                            <button id="btn-timer-toggle" onclick="toggleTimer()" class="px-3 py-1.5 rounded-lg bg-[#012169] hover:bg-[#001547] text-white text-xs font-semibold transition flex items-center gap-1.5 shadow-xs">
+                                <svg id="icon-play" class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z"/></svg>
+                                <svg id="icon-pause" class="w-3.5 h-3.5 hidden" fill="currentColor" viewBox="0 0 20 20"><path d="M5.75 3a.75.75 0 00-.75.75v12.5c0 .414.336.75.75.75h1.5a.75.75 0 00.75-.75V3.75A.75.75 0 007.25 3h-1.5zM12.75 3a.75.75 0 00-.75.75v12.5c0 .414.336.75.75.75h1.5a.75.75 0 00.75-.75V3.75a.75.75 0 00-.75-.75h-1.5z"/></svg>
+                                <span id="btn-timer-text">Start</span>
+                            </button>
+                            <button onclick="resetTimer()" title="Reset timer to 45:00" class="p-1.5 rounded-lg text-slate-500 hover:text-slate-900 hover:bg-slate-200/70 transition">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4-Step Interactive Progress Navigation -->
+            <nav aria-label="Activity stages" class="mt-3 grid grid-cols-2 sm:grid-cols-4 gap-2">
+                <button onclick="goToStep(1)" id="nav-step-1" class="step-nav-btn text-left px-3 py-2 rounded-xl border-2 border-[#012169] bg-[#012169] text-white transition flex items-center justify-between shadow-xs">
+                    <div>
+                        <div class="text-[10px] uppercase tracking-wider opacity-80 font-semibold">0 – 8 min</div>
+                        <div class="text-xs sm:text-sm font-bold truncate">1. Note-Sorting &amp; Framing</div>
+                    </div>
+                    <span id="badge-step-1" class="w-2 h-2 rounded-full bg-slate-300"></span>
+                </button>
+
+                <button onclick="goToStep(2)" id="nav-step-2" class="step-nav-btn text-left px-3 py-2 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 transition flex items-center justify-between">
+                    <div>
+                        <div class="text-[10px] uppercase tracking-wider text-slate-400 font-semibold">8 – 15 min</div>
+                        <div class="text-xs sm:text-sm font-bold truncate">2. Quick Outline</div>
+                    </div>
+                    <span id="badge-step-2" class="w-2 h-2 rounded-full bg-slate-300"></span>
+                </button>
+
+                <button onclick="goToStep(3)" id="nav-step-3" class="step-nav-btn text-left px-3 py-2 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 transition flex items-center justify-between">
+                    <div>
+                        <div class="text-[10px] uppercase tracking-wider text-slate-400 font-semibold">15 – 35 min</div>
+                        <div class="text-xs sm:text-sm font-bold truncate">3. Analytical Writing</div>
+                    </div>
+                    <span id="badge-step-3" class="w-2 h-2 rounded-full bg-slate-300"></span>
+                </button>
+
+                <button onclick="goToStep(4)" id="nav-step-4" class="step-nav-btn text-left px-3 py-2 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 transition flex items-center justify-between">
+                    <div>
+                        <div class="text-[10px] uppercase tracking-wider text-slate-400 font-semibold">35 – 45 min</div>
+                        <div class="text-xs sm:text-sm font-bold truncate">4. Proofreading &amp; C1 Check</div>
+                    </div>
+                    <span id="badge-step-4" class="w-2 h-2 rounded-full bg-slate-300"></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- NON-INTRUSIVE TOAST NOTIFICATION CONTAINER (Replaces alert()) -->
+    <div id="toast-container" class="fixed bottom-4 right-4 z-50 flex flex-col gap-2 pointer-events-none"></div>
+
+    <!-- MAIN CONTENT AREA -->
+    <main class="flex-1 max-w-6xl w-full mx-auto px-4 sm:px-6 py-6">
+
+        <!-- ===================================================================== -->
+        <!-- STEP 1: NOTE-SORTING & FRAMING (0 - 8 min)                            -->
+        <!-- ===================================================================== -->
+        <section id="step-1" class="step-section space-y-6">
+            <div class="bg-white rounded-2xl border border-slate-200 p-5 sm:p-6 shadow-sm">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-4 border-b border-slate-100">
+                    <div>
+                        <span class="inline-block text-xs font-bold uppercase tracking-wider text-[#012169] bg-royal-light border border-royal-border px-2.5 py-1 rounded-lg mb-1">
+                            Stage 1 • Recommended time: 8 minutes
+                        </span>
+                        <h2 class="text-xl font-extrabold text-slate-900">Note-Sorting &amp; Comparative Framing</h2>
+                        <p class="text-sm text-slate-600 mt-1">
+                            Review your comprehension answers from both videos, distil <strong>three core ideas per imperial power</strong>, and craft a one-sentence comparative thesis statement.
+                            <span class="inline-block text-xs text-[#012169] font-medium ml-1">(Tip: click any <span class="dict-term" data-term="imperialism">dotted-underlined word</span> for its British English definition.)</span>
+                        </p>
+                    </div>
+                    <div class="flex flex-wrap items-center gap-2 self-start sm:self-center shrink-0">
+                        <button type="button" onclick="toggleCrossVideoCheck()" id="btn-cross-video-check" class="text-xs font-semibold text-[#012169] bg-royal-light hover:bg-blue-100 border border-royal-border px-3 py-1.5 rounded-xl transition flex items-center gap-1.5">
+                            <span id="cross-video-check-icon">☐</span>
+                            <span>Self-Check: Have I compared both videos?</span>
+                        </button>
+                        <button type="button" onclick="toggleHintsBox()" class="text-xs font-semibold text-brass-dark bg-brass-light hover:bg-amber-100/80 border border-brass-border px-3 py-1.5 rounded-xl transition flex items-center gap-1.5">
+                            <svg class="w-4 h-4 text-brass-dark" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+                            Guiding questions
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Interactive Self-Check Banner: Have I compared both videos? -->
+                <div id="cross-video-check-panel" class="hidden mt-4 p-3.5 rounded-xl bg-royal-light/70 border border-royal-border text-xs text-slate-800">
+                    <div class="font-bold text-[#012169] mb-1">Cross-Video Comparison Check:</div>
+                    <p id="cross-video-check-feedback" class="text-slate-700 leading-relaxed">
+                        Fill in notes for both powers and write a comparative angle that links them rather than listing two separate summaries.
+                    </p>
+                </div>
+
+                <!-- Collapsible Open Analytical Guiding Questions (No Ready-Made Answers) -->
+                <div id="hints-box" class="hidden mt-4 p-4 rounded-xl bg-brass-light border border-brass-border text-xs text-slate-800 space-y-2.5">
+                    <div class="font-bold flex items-center justify-between text-brass-dark">
+                        <span>Open guiding questions to interrogate your notes (formulate your own evidence from the videos):</span>
+                        <button type="button" onclick="toggleHintsBox()" class="text-slate-600 hover:text-slate-900 font-bold px-2 py-0.5 rounded">Close ✕</button>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3 pt-1">
+                        <div class="bg-white p-3 rounded-xl border border-royal-border">
+                            <p class="font-bold text-[#012169] flex items-center gap-1.5">
+                                <span>Video 1: The British Empire (1440 Originals)</span>
+                            </p>
+                            <ul class="list-disc pl-4 mt-1.5 space-y-1 text-slate-700">
+                                <li><strong>Drivers:</strong> Which commercial, <span class="dict-term" data-term="mercantilism">mercantilist</span>, or <span class="dict-term" data-term="raw materials">resource</span> pressures pushed Britain outward?</li>
+                                <li><strong>Instruments:</strong> How did maritime reach, <span class="dict-term" data-term="indirect rule">indirect rule</span>, <span class="dict-term" data-term="protectorate">protectorates</span>, or institutions sustain control?</li>
+                                <li><strong>Decline &amp; Legacy:</strong> What pressures (<span class="dict-term" data-term="imperial overstretch">imperial overstretch</span>, war costs, resistance) drove <span class="dict-term" data-term="decolonisation">decolonisation</span>, and what remains through the <span class="dict-term" data-term="commonwealth">Commonwealth</span>?</li>
+                            </ul>
+                        </div>
+                        <div class="bg-white p-3 rounded-xl border border-us-border">
+                            <p class="font-bold text-[#B31942] flex items-center gap-1.5">
+                                <span>Video 2: American Imperialism (Objective 3.1)</span>
+                            </p>
+                            <ul class="list-disc pl-4 mt-1.5 space-y-1 text-slate-700">
+                                <li><strong>Drivers:</strong> How did domestic industrial <span class="dict-term" data-term="surplus">surplus</span>, <span class="dict-term" data-term="overseas markets">overseas markets</span>, and <span class="dict-term" data-term="geopolitical">geopolitical</span> competition shape US ambitions?</li>
+                                <li><strong>Instruments:</strong> What role did <span class="dict-term" data-term="naval dominance">naval dominance</span>, bases, and doctrines such as <span class="dict-term" data-term="Manifest Destiny"><em>Manifest Destiny</em></span> or <span class="dict-term" data-term="social Darwinism">Social Darwinism</span> play?</li>
+                                <li><strong>Tension &amp; Shift:</strong> Where did democratic <span class="dict-term" data-term="sovereignty">sovereignty</span> clash with <span class="dict-term" data-term="interventionism">interventionism</span>, and how did US power evolve from <span class="dict-term" data-term="isolationism">isolationism</span> toward <span class="dict-term" data-term="hegemony">hegemony</span>?</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="bg-white/90 p-3 rounded-xl border border-brass-border text-slate-800">
+                        <strong class="text-[#012169]">Cross-cutting tension to spot:</strong> Identify <em>one similarity</em> in how both powers justified or projected reach, and <em>one tension</em> between formal territorial rule and informal/<span class="dict-term" data-term="strategic">strategic</span> influence.
+                    </div>
+                </div>
+
+                <!-- Side-by-Side Comparison Grid -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 mt-5">
+                    
+                    <!-- Video 1 Card: British Empire (Union Jack Theme) -->
+                    <div class="rounded-2xl border-2 border-royal-border bg-gradient-to-b from-royal-light/70 to-white p-4 sm:p-5 space-y-4 relative overflow-hidden">
+                        <div class="flex items-center justify-between border-b border-royal-border pb-3">
+                            <div class="flex items-center gap-3">
+                                <!-- Custom Inline SVG Union Jack Flag Badge -->
+                                <svg class="w-11 h-7 rounded-md shadow-xs border border-slate-300 shrink-0" viewBox="0 0 60 36" aria-label="United Kingdom Flag">
+                                    <rect width="60" height="36" fill="#012169"/>
+                                    <path d="M0,0 L60,36 M60,0 L0,36" stroke="#ffffff" stroke-width="6"/>
+                                    <path d="M0,0 L60,36 M60,0 L0,36" stroke="#C8102E" stroke-width="2.5"/>
+                                    <path d="M30,0 V36 M0,18 H60" stroke="#ffffff" stroke-width="10"/>
+                                    <path d="M30,0 V36 M0,18 H60" stroke="#C8102E" stroke-width="6"/>
+                                </svg>
+                                <div>
+                                    <span class="text-[10px] font-extrabold uppercase tracking-wider text-white bg-[#012169] px-2 py-0.5 rounded-md">Video 1 • United Kingdom</span>
+                                    <h3 class="font-extrabold text-slate-900 text-base mt-0.5">The British Empire</h3>
+                                    <p class="text-xs text-slate-500">How It Rose, Ruled, and Fell (1440 Originals)</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="space-y-3">
+                            <div>
+                                <label for="uk-drivers" class="block text-xs font-bold text-slate-800 mb-1">
+                                    1. Drivers of Expansion <span class="font-normal text-slate-500">(Economic &amp; strategic motives)</span>
+                                </label>
+                                <input type="text" id="uk-drivers" oninput="saveState()" placeholder="e.g. Mercantilism, trade monopolies, quest for raw materials..."
+                                    class="w-full rounded-xl border border-slate-300 bg-white px-3.5 py-2 text-sm text-slate-800 placeholder:text-slate-400">
+                            </div>
+                            <div>
+                                <label for="uk-tools" class="block text-xs font-bold text-slate-800 mb-1">
+                                    2. Instruments of Control <span class="font-normal text-slate-500">(Naval, administrative &amp; cultural tools)</span>
+                                </label>
+                                <input type="text" id="uk-tools" oninput="saveState()" placeholder="e.g. Royal Navy supremacy, East India Company, indirect rule..."
+                                    class="w-full rounded-xl border border-slate-300 bg-white px-3.5 py-2 text-sm text-slate-800 placeholder:text-slate-400">
+                            </div>
+                            <div>
+                                <label for="uk-limits" class="block text-xs font-bold text-slate-800 mb-1">
+                                    3. Decline &amp; Post-Imperial Legacy <span class="font-normal text-slate-500">(Overstretch, decolonisation &amp; Commonwealth)</span>
+                                </label>
+                                <input type="text" id="uk-limits" oninput="saveState()" placeholder="e.g. Post-WWII exhaustion, nationalist movements, Commonwealth..."
+                                    class="w-full rounded-xl border border-slate-300 bg-white px-3.5 py-2 text-sm text-slate-800 placeholder:text-slate-400">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Video 2 Card: American Imperialism (Stars & Stripes Theme) -->
+                    <div class="rounded-2xl border-2 border-us-border bg-gradient-to-b from-us-light/70 to-white p-4 sm:p-5 space-y-4 relative overflow-hidden">
+                        <div class="flex items-center justify-between border-b border-us-border pb-3">
+                            <div class="flex items-center gap-3">
+                                <!-- Custom Inline SVG US Flag Badge -->
+                                <svg class="w-11 h-7 rounded-md shadow-xs border border-slate-300 shrink-0" viewBox="0 0 60 36" aria-label="United States Flag">
+                                    <rect width="60" height="36" fill="#ffffff"/>
+                                    <g fill="#B31942">
+                                        <rect y="0" width="60" height="3"/>
+                                        <rect y="5.5" width="60" height="3"/>
+                                        <rect y="11" width="60" height="3"/>
+                                        <rect y="16.5" width="60" height="3"/>
+                                        <rect y="22" width="60" height="3"/>
+                                        <rect y="27.5" width="60" height="3"/>
+                                        <rect y="33" width="60" height="3"/>
+                                    </g>
+                                    <rect width="26" height="19.5" fill="#0A3161"/>
+                                    <g fill="#ffffff">
+                                        <circle cx="5" cy="4.5" r="1.1"/><circle cx="13" cy="4.5" r="1.1"/><circle cx="21" cy="4.5" r="1.1"/>
+                                        <circle cx="9" cy="9.5" r="1.1"/><circle cx="17" cy="9.5" r="1.1"/>
+                                        <circle cx="5" cy="14.5" r="1.1"/><circle cx="13" cy="14.5" r="1.1"/><circle cx="21" cy="14.5" r="1.1"/>
+                                    </g>
+                                </svg>
+                                <div>
+                                    <span class="text-[10px] font-extrabold uppercase tracking-wider text-white bg-[#B31942] px-2 py-0.5 rounded-md">Video 2 • United States</span>
+                                    <h3 class="font-extrabold text-slate-900 text-base mt-0.5">American Imperialism</h3>
+                                    <p class="text-xs text-slate-500">The Goals of American Imperialism (Objective 3.1)</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="space-y-3">
+                            <div>
+                                <label for="us-drivers" class="block text-xs font-bold text-slate-800 mb-1">
+                                    1. Drivers of Expansion <span class="font-normal text-slate-500">(Markets, Manifest Destiny &amp; Mahan)</span>
+                                </label>
+                                <input type="text" id="us-drivers" oninput="saveState()" placeholder="e.g. Overseas markets for surplus goods, frontier closure, Social Darwinism..."
+                                    class="w-full rounded-xl border border-slate-300 bg-white px-3.5 py-2 text-sm text-slate-800 placeholder:text-slate-400">
+                            </div>
+                            <div>
+                                <label for="us-tools" class="block text-xs font-bold text-slate-800 mb-1">
+                                    2. Instruments &amp; Flashpoints <span class="font-normal text-slate-500">(Navy, bases &amp; territorial footholds)</span>
+                                </label>
+                                <input type="text" id="us-tools" oninput="saveState()" placeholder="e.g. Great White Fleet, Hawaii annexation, Panama Canal, Philippines..."
+                                    class="w-full rounded-xl border border-slate-300 bg-white px-3.5 py-2 text-sm text-slate-800 placeholder:text-slate-400">
+                            </div>
+                            <div>
+                                <label for="us-limits" class="block text-xs font-bold text-slate-800 mb-1">
+                                    3. Shift &amp; Strategic Evolution <span class="font-normal text-slate-500">(From isolationism to global influence)</span>
+                                </label>
+                                <input type="text" id="us-limits" oninput="saveState()" placeholder="e.g. Anti-imperialist debate, hemispheric dominance, economic hegemony..."
+                                    class="w-full rounded-xl border border-slate-300 bg-white px-3.5 py-2 text-sm text-slate-800 placeholder:text-slate-400">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Comparative Thesis Statement Builder -->
+                <div class="mt-6 bg-gradient-to-r from-[#012169] via-[#0A3161] to-[#7a122e] text-white rounded-2xl p-5 shadow-sm">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
+                        <label for="thesis-input" class="text-sm font-bold flex items-center gap-2">
+                            <span class="px-2 py-0.5 rounded bg-[#C5A059] text-slate-950 font-extrabold text-xs uppercase tracking-wider">Key Milestone</span>
+                            Formulate your comparative angle in one sentence:
+                        </label>
+                        <span class="text-xs text-slate-200">Will serve as your opening topic sentence</span>
+                    </div>
+                    <p class="text-xs text-slate-200 mb-3">
+                        Tip: Frame both a shared mechanism (such as commercial <span class="dict-term !text-amber-200 !border-amber-300" data-term="expansionism">expansionism</span>, maritime reach, or moral framing) and a point of contrast between formal <span class="dict-term !text-amber-200 !border-amber-300" data-term="colonialism">colonialism</span> and <span class="dict-term !text-amber-200 !border-amber-300" data-term="strategic">strategic</span> / <span class="dict-term !text-amber-200 !border-amber-300" data-term="sphere of influence">sphere-of-influence</span> power.
+                    </p>
+                    <textarea id="thesis-input" rows="2" oninput="saveState()"
+                        placeholder="State your comparative claim in one clear sentence linking both imperial trajectories..."
+                        class="w-full rounded-xl bg-white/10 backdrop-blur-xs border border-white/25 px-4 py-2.5 text-sm text-white placeholder:text-slate-300 focus:border-[#C5A059]"></textarea>
+                    
+                    <!-- Structural Framing Cues (No Pre-Written Sentences) -->
+                    <div class="mt-2.5 flex flex-wrap items-center gap-1.5">
+                        <span class="text-[11px] text-amber-200 font-semibold mr-1">Structural framing cues:</span>
+                        <span class="text-[11px] bg-white/10 border border-white/20 text-slate-100 px-2.5 py-1 rounded-lg">1. Shared driver/rationale</span>
+                        <span class="text-[11px] bg-white/10 border border-white/20 text-slate-100 px-2.5 py-1 rounded-lg">2. Contrast in method/scope</span>
+                        <span class="text-[11px] bg-white/10 border border-white/20 text-slate-100 px-2.5 py-1 rounded-lg">3. Analytical payoff</span>
+                    </div>
+                </div>
+
+                <div class="mt-5 flex justify-end">
+                    <button onclick="goToStep(2)" class="px-5 py-2.5 rounded-xl bg-[#012169] hover:bg-[#001547] text-white text-sm font-semibold shadow-sm transition flex items-center gap-2">
+                        Proceed to Stage 2: Quick Outline
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================================================================== -->
+        <!-- STEP 2: QUICK OUTLINE (8 - 15 min)                                    -->
+        <!-- ===================================================================== -->
+        <section id="step-2" class="step-section hidden space-y-6">
+            <div class="bg-white rounded-2xl border border-slate-200 p-5 sm:p-6 shadow-sm">
+                <div class="pb-4 border-b border-slate-100">
+                    <span class="inline-block text-xs font-bold uppercase tracking-wider text-[#0A3161] bg-indigo-50 border border-indigo-200 px-2.5 py-1 rounded-lg mb-1">
+                        Stage 2 • Recommended time: 7 minutes
+                    </span>
+                    <h2 class="text-xl font-extrabold text-slate-900">Two-Part Analytical Outline</h2>
+                    <p class="text-sm text-slate-600 mt-1">
+                        Organise your ideas into <strong>two concise analytical movements</strong> before drafting. Avoid summarising one video after the other—attempt a genuine <span class="dict-term" data-term="synthesis">synthesis</span> that interweaves both case studies throughout!
+                    </p>
+                </div>
+
+                <!-- Thesis Reminder Banner -->
+                <div class="mt-4 p-3.5 rounded-xl bg-slate-50 border border-slate-200 flex flex-col sm:flex-row sm:items-center gap-2.5">
+                    <span class="text-[11px] font-extrabold uppercase tracking-wider text-[#012169] bg-white border border-royal-border px-2.5 py-1 rounded-md shrink-0 self-start">Your Framing</span>
+                    <p id="recap-thesis-step2" class="text-sm italic text-slate-700 font-serif">
+                        (No thesis formulated in Stage 1 yet — you may return to complete it or begin drafting your outline below.)
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-5">
+                    
+                    <!-- Block 1: Comparative Dynamics (Convergence vs. Divergence) -->
+                    <div class="rounded-2xl border border-slate-200 bg-slate-50/70 p-4 sm:p-5 flex flex-col justify-between space-y-4">
+                        <div>
+                            <div class="flex items-center gap-2.5 mb-2">
+                                <span class="w-7 h-7 rounded-full bg-[#012169] text-white text-xs font-extrabold flex items-center justify-center shadow-2xs">1</span>
+                                <h3 class="font-extrabold text-slate-900 text-base">Comparative Dynamics: Convergence vs. Divergence</h3>
+                            </div>
+                            <p class="text-xs text-slate-600 mb-3 leading-relaxed">
+                                <strong>Structural function:</strong> Establish where British and American expansion converge (e.g. trade, <span class="dict-term" data-term="raw materials">resources</span>, <span class="dict-term" data-term="naval dominance">sea power</span>, paternalistic <span class="dict-term" data-term="civilising mission">ideology</span>) and where they diverge (e.g. direct/indirect colonial rule vs. <span class="dict-term" data-term="strategic">strategic</span> bases, <span class="dict-term" data-term="sphere of influence">spheres of influence</span>, or <span class="dict-term" data-term="sovereignty">sovereignty</span> debates).
+                            </p>
+                            <textarea id="outline-part1" rows="5" oninput="saveState()"
+                                placeholder="Jot brief structural notes on convergences and divergences (no full sentences needed yet)..."
+                                class="w-full rounded-xl border border-slate-300 bg-white p-3.5 text-sm text-slate-800 placeholder:text-slate-400"></textarea>
+                        </div>
+
+                        <div>
+                            <div class="text-[11px] font-bold text-slate-500 uppercase tracking-wider mb-1.5">Contrast &amp; Comparison Link-Word Bank (click to insert):</div>
+                            <div class="flex flex-wrap gap-1.5">
+                                <button type="button" onclick="insertAtCursor('outline-part1', 'whereas ')" class="text-xs bg-white hover:bg-royal-light border border-slate-200 hover:border-royal-border text-slate-700 px-2.5 py-1 rounded-lg transition">whereas</button>
+                                <button type="button" onclick="insertAtCursor('outline-part1', 'conversely, ')" class="text-xs bg-white hover:bg-royal-light border border-slate-200 hover:border-royal-border text-slate-700 px-2.5 py-1 rounded-lg transition">conversely,</button>
+                                <button type="button" onclick="insertAtCursor('outline-part1', 'by contrast, ')" class="text-xs bg-white hover:bg-royal-light border border-slate-200 hover:border-royal-border text-slate-700 px-2.5 py-1 rounded-lg transition">by contrast,</button>
+                                <button type="button" onclick="insertAtCursor('outline-part1', 'nevertheless, ')" class="text-xs bg-white hover:bg-royal-light border border-slate-200 hover:border-royal-border text-slate-700 px-2.5 py-1 rounded-lg transition">nevertheless,</button>
+                                <button type="button" onclick="insertAtCursor('outline-part1', 'consequently, ')" class="text-xs bg-white hover:bg-royal-light border border-slate-200 hover:border-royal-border text-slate-700 px-2.5 py-1 rounded-lg transition">consequently,</button>
+                                <button type="button" onclick="insertAtCursor('outline-part1', 'in turn, ')" class="text-xs bg-white hover:bg-royal-light border border-slate-200 hover:border-royal-border text-slate-700 px-2.5 py-1 rounded-lg transition">in turn,</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Block 2: Contemporary Echo / Legacy -->
+                    <div class="rounded-2xl border border-slate-200 bg-slate-50/70 p-4 sm:p-5 flex flex-col justify-between space-y-4">
+                        <div>
+                            <div class="flex items-center gap-2.5 mb-2">
+                                <span class="w-7 h-7 rounded-full bg-[#B31942] text-white text-xs font-extrabold flex items-center justify-center shadow-2xs">2</span>
+                                <h3 class="font-extrabold text-slate-900 text-base">Contemporary Echo &amp; Post-Imperial Legacy</h3>
+                            </div>
+                            <p class="text-xs text-slate-600 mb-3 leading-relaxed">
+                                <strong>Structural function:</strong> Connect these historical patterns to the contemporary world—how <span class="dict-term" data-term="decolonisation">decolonisation</span>, post-imperial <span class="dict-term" data-term="legacy">legacies</span> (<span class="dict-term" data-term="commonwealth">Commonwealth</span>, <span class="dict-term" data-term="autonomy">autonomy</span>), and shifts between <span class="dict-term" data-term="hard power">hard power</span>, <span class="dict-term" data-term="soft power">soft power</span>, and <span class="dict-term" data-term="hegemony">hegemony</span> shape global power today.
+                            </p>
+                            <textarea id="outline-part2" rows="5" oninput="saveState()"
+                                placeholder="Jot brief structural notes on how this comparison illuminates contemporary power or legacies..."
+                                class="w-full rounded-xl border border-slate-300 bg-white p-3.5 text-sm text-slate-800 placeholder:text-slate-400"></textarea>
+                        </div>
+
+                        <div>
+                            <div class="text-[11px] font-bold text-slate-500 uppercase tracking-wider mb-1.5">Cause, Concession &amp; Sequence Link-Words (click to insert):</div>
+                            <div class="flex flex-wrap gap-1.5">
+                                <button type="button" onclick="insertAtCursor('outline-part2', 'consequently, ')" class="text-xs bg-white hover:bg-us-light border border-slate-200 hover:border-us-border text-slate-700 px-2.5 py-1 rounded-lg transition">consequently,</button>
+                                <button type="button" onclick="insertAtCursor('outline-part2', 'nevertheless, ')" class="text-xs bg-white hover:bg-us-light border border-slate-200 hover:border-us-border text-slate-700 px-2.5 py-1 rounded-lg transition">nevertheless,</button>
+                                <button type="button" onclick="insertAtCursor('outline-part2', 'in turn, ')" class="text-xs bg-white hover:bg-us-light border border-slate-200 hover:border-us-border text-slate-700 px-2.5 py-1 rounded-lg transition">in turn,</button>
+                                <button type="button" onclick="insertAtCursor('outline-part2', 'whereas ')" class="text-xs bg-white hover:bg-us-light border border-slate-200 hover:border-us-border text-slate-700 px-2.5 py-1 rounded-lg transition">whereas</button>
+                                <button type="button" onclick="insertAtCursor('outline-part2', 'by contrast, ')" class="text-xs bg-white hover:bg-us-light border border-slate-200 hover:border-us-border text-slate-700 px-2.5 py-1 rounded-lg transition">by contrast,</button>
+                                <button type="button" onclick="insertAtCursor('outline-part2', 'conversely, ')" class="text-xs bg-white hover:bg-us-light border border-slate-200 hover:border-us-border text-slate-700 px-2.5 py-1 rounded-lg transition">conversely,</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-6 flex items-center justify-between">
+                    <button onclick="goToStep(1)" class="px-4 py-2 rounded-xl border border-slate-300 hover:bg-slate-50 text-slate-700 text-sm font-semibold transition">
+                        ← Back to Note-Sorting
+                    </button>
+                    <button onclick="goToStep(3)" class="px-5 py-2.5 rounded-xl bg-[#012169] hover:bg-[#001547] text-white text-sm font-semibold shadow-sm transition flex items-center gap-2">
+                        Proceed to Stage 3: Analytical Writing
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================================================================== -->
+        <!-- STEP 3: ANALYTICAL WRITING (15 - 35 min)                              -->
+        <!-- ===================================================================== -->
+        <section id="step-3" class="step-section hidden space-y-5">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-5">
+                
+                <!-- Main Column: Distraction-Free Writing Editor (8 cols) -->
+                <div class="lg:col-span-8 bg-white rounded-2xl border border-slate-200 p-5 sm:p-6 shadow-sm flex flex-col">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-4 border-b border-slate-100">
+                        <div>
+                            <span class="inline-block text-xs font-bold uppercase tracking-wider text-emerald-800 bg-emerald-50 border border-emerald-200 px-2.5 py-1 rounded-lg mb-1">
+                                Stage 3 • Recommended time: 20 minutes
+                            </span>
+                            <h2 class="text-xl font-extrabold text-slate-900">Drafting Your Analytical Paragraph</h2>
+                            <p class="text-xs text-slate-500 mt-0.5">
+                                Write a continuous, well-structured analytical paragraph in British English (no bullet points). Target length: <strong>180–220 words</strong>.
+                            </p>
+                        </div>
+                        <div class="flex flex-wrap items-center gap-1.5 self-start sm:self-center shrink-0">
+                            <button type="button" onclick="lookupSelectedEssayWord()" class="px-3 py-1.5 rounded-lg bg-brass-light hover:bg-amber-100/80 border border-brass-border text-brass-dark text-xs font-bold transition flex items-center gap-1" title="Highlight a word in your essay box and click to look it up in the British English Dictionary">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+                                Look up selected word
+                            </button>
+                            <button type="button" onclick="importThesisToEssay()" class="px-3 py-1.5 rounded-lg bg-royal-light hover:bg-blue-100 border border-royal-border text-[#012169] text-xs font-bold transition">
+                                + Insert Opening Sentence
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Real-Time Word Counter & Progress Bar -->
+                    <div class="mt-4 mb-3 bg-slate-50 rounded-xl p-3 border border-slate-200/80">
+                        <div class="flex flex-wrap items-center justify-between gap-2 text-xs mb-1.5">
+                            <span class="font-bold text-slate-700">Word Count Progress:</span>
+                            <div class="flex items-center gap-2">
+                                <span id="word-count-status" class="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-slate-200 text-slate-700">
+                                    In progress (target: 180–220 words)
+                                </span>
+                                <span class="font-mono font-extrabold text-sm text-slate-900">
+                                    <span id="word-count-number">0</span> <span class="text-slate-400 font-normal">/ 200 words</span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="w-full h-2.5 bg-slate-200 rounded-full overflow-hidden">
+                            <div id="word-count-bar" class="h-full bg-[#012169] transition-all duration-300" style="width: 0%"></div>
+                        </div>
+                    </div>
+
+                    <!-- C1 Sentence-Crafting Checklist & Non-Generative Paragraph Coach -->
+                    <div class="mb-3 grid grid-cols-1 md:grid-cols-2 gap-3">
+                        <div class="rounded-xl border border-royal-border bg-royal-light/45 p-3 text-xs space-y-1.5">
+                            <div class="font-extrabold text-[11px] uppercase tracking-wider text-[#012169]">C1 Sentence-Crafting Checklist</div>
+                            <ul class="space-y-1 text-slate-700">
+                                <li>• <strong>Contrast / comparison:</strong> Have I used a contrast marker (<em>whereas, by contrast, conversely</em>)?</li>
+                                <li>• <strong>Cause &amp; consequence:</strong> Have I linked a cause to a consequence (<em>consequently, in turn, thus</em>)?</li>
+                                <li>• <strong>Avoid sweeping generalisations:</strong> Have I qualified claims instead of writing <em>always / never / all</em>?</li>
+                            </ul>
+                        </div>
+                        <div id="paragraph-coach-box" class="rounded-xl border border-slate-200 bg-slate-50 p-3 text-xs space-y-1.5">
+                            <div class="flex items-center justify-between">
+                                <span class="font-extrabold text-[11px] uppercase tracking-wider text-slate-800">Paragraph Coach (Structural Cues)</span>
+                                <span id="coach-summary-pill" class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-slate-200 text-slate-700">0/3 cues</span>
+                            </div>
+                            <ul id="paragraph-coach-list" class="space-y-1 text-slate-700">
+                                <li id="coach-cue-sentences">○ Multi-sentence development (write at least 3 linked sentences)</li>
+                                <li id="coach-cue-connector">○ Comparative or cause-effect link word detected</li>
+                                <li id="coach-cue-length">○ Word count in or near 180–220 word target</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Writing Textarea -->
+                    <textarea id="essay-editor" rows="13" oninput="handleEssayInput()"
+                        placeholder="Begin drafting your comparative analytical paragraph in British English here..."
+                        class="w-full flex-1 rounded-xl border border-slate-300 bg-white p-4 sm:p-5 font-serif text-base leading-relaxed text-slate-900 placeholder:font-sans placeholder:text-slate-400 resize-y"></textarea>
+
+                    <div class="mt-4 flex items-center justify-between pt-2">
+                        <button onclick="goToStep(2)" class="px-4 py-2 rounded-xl border border-slate-300 hover:bg-slate-50 text-slate-700 text-sm font-semibold transition">
+                            ← Back to Outline
+                        </button>
+                        <button onclick="goToStep(4)" class="px-5 py-2.5 rounded-xl bg-[#B31942] hover:bg-[#931335] text-white text-sm font-semibold shadow-sm transition flex items-center gap-2">
+                            Proceed to Stage 4: Proofreading &amp; Self-Assessment
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Side Drawer: AMC Vocabulary Bank & Outline Reference (4 cols) -->
+                <aside class="lg:col-span-4 space-y-4">
+                    <div class="bg-white rounded-2xl border border-slate-200 p-4 shadow-sm">
+                        <div class="grid grid-cols-2 gap-1.5 bg-slate-100 p-1 rounded-xl mb-4">
+                            <button id="tab-lexicon" onclick="switchSidebarTab('lexicon')" class="py-1.5 px-2 rounded-lg bg-white text-[#012169] font-extrabold text-xs shadow-2xs transition">
+                                AMC Lexicon (C1)
+                            </button>
+                            <button id="tab-notes" onclick="switchSidebarTab('notes')" class="py-1.5 px-2 rounded-lg text-slate-600 hover:text-slate-900 font-semibold text-xs transition">
+                                My Notes &amp; Plan
+                            </button>
+                        </div>
+
+                        <!-- Panel 1: Clickable British-English Geopolitical Vocabulary Bank -->
+                        <div id="sidebar-lexicon" class="space-y-3.5">
+                            <p class="text-[11px] text-slate-500">
+                                Click a term to <strong>insert</strong> it into your essay, or click <strong>ⓘ</strong> to inspect its British English definition first:
+                            </p>
+
+                            <div>
+                                <h4 class="text-[11px] font-extrabold uppercase tracking-wider text-[#012169] mb-1.5">Power &amp; Geopolitics</h4>
+                                <div class="flex flex-wrap gap-1.5">
+                                    <div class="inline-flex items-center rounded-lg border border-slate-200 bg-slate-50 hover:border-royal-border overflow-hidden">
+                                        <button type="button" onclick="insertAtCursor('essay-editor', 'hegemony ')" class="text-xs text-slate-800 hover:bg-royal-light px-2.5 py-1 transition">hegemony</button>
+                                        <button type="button" onclick="openWordPopover('hegemony', this)" title="Define 'hegemony'" class="px-1.5 py-1 text-[11px] font-bold text-[#012169] hover:bg-royal-light border-l border-slate-200 transition">ⓘ</button>
+                                    </div>
+                                    <div class="inline-flex items-center rounded-lg border border-slate-200 bg-slate-50 hover:border-royal-border overflow-hidden">
+                                        <button type="button" onclick="insertAtCursor('essay-editor', 'naval dominance ')" class="text-xs text-slate-800 hover:bg-royal-light px-2.5 py-1 transition">naval dominance</button>
+                                        <button type="button" onclick="openWordPopover('naval dominance', this)" title="Define 'naval dominance'" class="px-1.5 py-1 text-[11px] font-bold text-[#012169] hover:bg-royal-light border-l border-slate-200 transition">ⓘ</button>
+                                    </div>
+                                    <div class="inline-flex items-center rounded-lg border border-slate-200 bg-slate-50 hover:border-royal-border overflow-hidden">
+                                        <button type="button" onclick="insertAtCursor('essay-editor', 'sphere of influence ')" class="text-xs text-slate-800 hover:bg-royal-light px-2.5 py-1 transition">sphere of influence</button>
+                                        <button type="button" onclick="openWordPopover('sphere of influence', this)" title="Define 'sphere of influence'" class="px-1.5 py-1 text-[11px] font-bold text-[#012169] hover:bg-royal-light border-l border-slate-200 transition">ⓘ</button>
+                                    </div>
+                                    <div class="inline-flex items-center rounded-lg border border-slate-200 bg-slate-50 hover:border-royal-border overflow-hidden">
+                                        <button type="button" onclick="insertAtCursor('essay-editor', 'hard and soft power ')" class="text-xs text-slate-800 hover:bg-royal-light px-2.5 py-1 transition">hard &amp; soft power</button>
+                                        <button type="button" onclick="openWordPopover('soft power', this)" title="Define 'soft power'" class="px-1.5 py-1 text-[11px] font-bold text-[#012169] hover:bg-royal-light border-l border-slate-200 transition">ⓘ</button>
+                                    </div>
+                                    <div class="inline-flex items-center rounded-lg border border-slate-200 bg-slate-50 hover:border-royal-border overflow-hidden">
+                                        <button type="button" onclick="insertAtCursor('essay-editor', 'expansionism ')" class="text-xs text-slate-800 hover:bg-royal-light px-2.5 py-1 transition">expansionism</button>
+                                        <button type="button" onclick="openWordPopover('expansionism', this)" title="Define 'expansionism'" class="px-1.5 py-1 text-[11px] font-bold text-[#012169] hover:bg-royal-light border-l border-slate-200 transition">ⓘ</button>
+                                    </div>
+                                    <div class="inline-flex items-center rounded-lg border border-slate-200 bg-slate-50 hover:border-royal-border overflow-hidden">
+                                        <button type="button" onclick="insertAtCursor('essay-editor', 'sovereignty ')" class="text-xs text-slate-800 hover:bg-royal-light px-2.5 py-1 transition">sovereignty</button>
+                                        <button type="button" onclick="openWordPopover('sovereignty', this)" title="Define 'sovereignty'" class="px-1.5 py-1 text-[11px] font-bold text-[#012169] hover:bg-royal-light border-l border-slate-200 transition">ⓘ</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <h4 class="text-[11px] font-extrabold uppercase tracking-wider text-[#B31942] mb-1.5">Commerce &amp; Ideology</h4>
+                                <div class="flex flex-wrap gap-1.5">
+                                    <div class="inline-flex items-center rounded-lg border border-slate-200 bg-slate-50 hover:border-us-border overflow-hidden">
+                                        <button type="button" onclick="insertAtCursor('essay-editor', 'raw materials ')" class="text-xs text-slate-800 hover:bg-us-light px-2.5 py-1 transition">raw materials</button>
+                                        <button type="button" onclick="openWordPopover('raw materials', this)" title="Define 'raw materials'" class="px-1.5 py-1 text-[11px] font-bold text-[#B31942] hover:bg-us-light border-l border-slate-200 transition">ⓘ</button>
+                                    </div>
+                                    <div class="inline-flex items-center rounded-lg border border-slate-200 bg-slate-50 hover:border-us-border overflow-hidden">
+                                        <button type="button" onclick="insertAtCursor('essay-editor', 'mercantilism ')" class="text-xs text-slate-800 hover:bg-us-light px-2.5 py-1 transition">mercantilism</button>
+                                        <button type="button" onclick="openWordPopover('mercantilism', this)" title="Define 'mercantilism'" class="px-1.5 py-1 text-[11px] font-bold text-[#B31942] hover:bg-us-light border-l border-slate-200 transition">ⓘ</button>
+                                    </div>
+                                    <div class="inline-flex items-center rounded-lg border border-slate-200 bg-slate-50 hover:border-us-border overflow-hidden">
+                                        <button type="button" onclick="insertAtCursor('essay-editor', 'civilising mission ')" class="text-xs text-slate-800 hover:bg-us-light px-2.5 py-1 transition">civilising mission</button>
+                                        <button type="button" onclick="openWordPopover('civilising mission', this)" title="Define 'civilising mission'" class="px-1.5 py-1 text-[11px] font-bold text-[#B31942] hover:bg-us-light border-l border-slate-200 transition">ⓘ</button>
+                                    </div>
+                                    <div class="inline-flex items-center rounded-lg border border-slate-200 bg-slate-50 hover:border-us-border overflow-hidden">
+                                        <button type="button" onclick="insertAtCursor('essay-editor', 'Manifest Destiny ')" class="text-xs text-slate-800 hover:bg-us-light px-2.5 py-1 transition">Manifest Destiny</button>
+                                        <button type="button" onclick="openWordPopover('Manifest Destiny', this)" title="Define 'Manifest Destiny'" class="px-1.5 py-1 text-[11px] font-bold text-[#B31942] hover:bg-us-light border-l border-slate-200 transition">ⓘ</button>
+                                    </div>
+                                    <div class="inline-flex items-center rounded-lg border border-slate-200 bg-slate-50 hover:border-us-border overflow-hidden">
+                                        <button type="button" onclick="insertAtCursor('essay-editor', 'indirect rule ')" class="text-xs text-slate-800 hover:bg-us-light px-2.5 py-1 transition">indirect rule</button>
+                                        <button type="button" onclick="openWordPopover('indirect rule', this)" title="Define 'indirect rule'" class="px-1.5 py-1 text-[11px] font-bold text-[#B31942] hover:bg-us-light border-l border-slate-200 transition">ⓘ</button>
+                                    </div>
+                                    <div class="inline-flex items-center rounded-lg border border-slate-200 bg-slate-50 hover:border-us-border overflow-hidden">
+                                        <button type="button" onclick="insertAtCursor('essay-editor', 'exploitation ')" class="text-xs text-slate-800 hover:bg-us-light px-2.5 py-1 transition">exploitation</button>
+                                        <button type="button" onclick="openWordPopover('exploitation', this)" title="Define 'exploitation'" class="px-1.5 py-1 text-[11px] font-bold text-[#B31942] hover:bg-us-light border-l border-slate-200 transition">ⓘ</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <h4 class="text-[11px] font-extrabold uppercase tracking-wider text-brass-dark mb-1.5">Decline, Legacy &amp; Nuance</h4>
+                                <div class="flex flex-wrap gap-1.5">
+                                    <div class="inline-flex items-center rounded-lg border border-slate-200 bg-slate-50 hover:border-brass-border overflow-hidden">
+                                        <button type="button" onclick="insertAtCursor('essay-editor', 'decolonisation ')" class="text-xs text-slate-800 hover:bg-brass-light px-2.5 py-1 transition">decolonisation</button>
+                                        <button type="button" onclick="openWordPopover('decolonisation', this)" title="Define 'decolonisation'" class="px-1.5 py-1 text-[11px] font-bold text-brass-dark hover:bg-brass-light border-l border-slate-200 transition">ⓘ</button>
+                                    </div>
+                                    <div class="inline-flex items-center rounded-lg border border-slate-200 bg-slate-50 hover:border-brass-border overflow-hidden">
+                                        <button type="button" onclick="insertAtCursor('essay-editor', 'imperial overstretch ')" class="text-xs text-slate-800 hover:bg-brass-light px-2.5 py-1 transition">imperial overstretch</button>
+                                        <button type="button" onclick="openWordPopover('imperial overstretch', this)" title="Define 'imperial overstretch'" class="px-1.5 py-1 text-[11px] font-bold text-brass-dark hover:bg-brass-light border-l border-slate-200 transition">ⓘ</button>
+                                    </div>
+                                    <div class="inline-flex items-center rounded-lg border border-slate-200 bg-slate-50 hover:border-brass-border overflow-hidden">
+                                        <button type="button" onclick="insertAtCursor('essay-editor', 'post-imperial legacy ')" class="text-xs text-slate-800 hover:bg-brass-light px-2.5 py-1 transition">post-imperial legacy</button>
+                                        <button type="button" onclick="openWordPopover('legacy', this)" title="Define 'legacy'" class="px-1.5 py-1 text-[11px] font-bold text-brass-dark hover:bg-brass-light border-l border-slate-200 transition">ⓘ</button>
+                                    </div>
+                                    <button type="button" onclick="insertAtCursor('essay-editor', 'Conversely, ')" class="vocab-chip text-xs bg-royal-light hover:bg-blue-100 border border-royal-border text-[#012169] font-medium px-2.5 py-1 rounded-lg transition">Conversely,</button>
+                                    <button type="button" onclick="insertAtCursor('essay-editor', 'Nevertheless, ')" class="vocab-chip text-xs bg-royal-light hover:bg-blue-100 border border-royal-border text-[#012169] font-medium px-2.5 py-1 rounded-lg transition">Nevertheless,</button>
+                                    <button type="button" onclick="insertAtCursor('essay-editor', 'To a large extent, ')" class="vocab-chip text-xs bg-royal-light hover:bg-blue-100 border border-royal-border text-[#012169] font-medium px-2.5 py-1 rounded-lg transition">To a large extent,</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Panel 2: Reference Notes & Plan -->
+                        <div id="sidebar-notes" class="hidden space-y-3 text-xs">
+                            <div class="p-2.5 rounded-xl bg-royal-light/60 border border-royal-border">
+                                <div class="font-bold text-[#012169] mb-1">Comparative Thesis:</div>
+                                <p id="side-thesis" class="text-slate-700 italic">—</p>
+                            </div>
+                            <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-200">
+                                <div class="font-bold text-slate-800 mb-1">1. Convergences &amp; Differences:</div>
+                                <p id="side-part1" class="text-slate-600 whitespace-pre-line">—</p>
+                            </div>
+                            <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-200">
+                                <div class="font-bold text-slate-800 mb-1">2. Contemporary Echoes:</div>
+                                <p id="side-part2" class="text-slate-600 whitespace-pre-line">—</p>
+                            </div>
+                            <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-200">
+                                <div class="font-bold text-slate-800 mb-1">Stage 1 Key Notes:</div>
+                                <p id="side-raw-notes" class="text-slate-600 whitespace-pre-line">—</p>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </section>
+
+        <!-- ===================================================================== -->
+        <!-- STEP 4: PROOFREADING & SELF-ASSESSMENT (35 - 45 min)                  -->
+        <!-- ===================================================================== -->
+        <section id="step-4" class="step-section hidden space-y-6">
+            <div class="bg-white rounded-2xl border border-slate-200 p-5 sm:p-6 shadow-sm">
+                <div class="pb-4 border-b border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                    <div>
+                        <span class="inline-block text-xs font-bold uppercase tracking-wider text-brass-dark bg-brass-light border border-brass-border px-2.5 py-1 rounded-lg mb-1">
+                            Stage 4 • Final 10 minutes
+                        </span>
+                        <h2 class="text-xl font-extrabold text-slate-900">Critical Proofreading, C1 Self-Assessment &amp; Export</h2>
+                        <p class="text-sm text-slate-600 mt-1">
+                            Review your analytical paragraph against the C1 descriptors below, highlight your reinvested terminology, and export your completed worksheet.
+                        </p>
+                    </div>
+                    <div class="flex flex-col sm:items-end gap-1.5 shrink-0">
+                    <!-- Left Column: C1 Self-Assessment Checklist & Targeted Proofreading Pass (6 cols) -->
+                    <div class="lg:col-span-6 space-y-3">
+                        <h3 class="text-xs font-extrabold text-slate-900 uppercase tracking-wider">C1 Quality Assurance Checklist</h3>
+                        
+                        <label class="flex items-start gap-3 p-3 rounded-xl border border-slate-200 hover:bg-slate-50 cursor-pointer transition">
+                            <input type="checkbox" id="chk-1" class="c1-check mt-0.5 w-4 h-4 rounded accent-[#012169]" onchange="updateChecklistScore()">
+                            <div>
+                                <div class="text-sm font-bold text-slate-800">1. Genuine Cross-Referencing (<span class="dict-term" data-term="synthesis">Synthesis</span>)</div>
+                                <div class="text-xs text-slate-500">I have synthesised and compared both videos throughout rather than summarising them sequentially.</div>
+                            </div>
+                        </label>
+
+                        <label class="flex items-start gap-3 p-3 rounded-xl border border-slate-200 hover:bg-slate-50 cursor-pointer transition">
+                            <input type="checkbox" id="chk-2" class="c1-check mt-0.5 w-4 h-4 rounded accent-[#012169]" onchange="updateChecklistScore()">
+                            <div>
+                                <div class="text-sm font-bold text-slate-800">2. Conceptual Precision (AMC)</div>
+                                <div class="text-xs text-slate-500">I clearly distinguished economic drivers (markets, resources), <span class="dict-term" data-term="strategic">strategic</span> tools (<span class="dict-term" data-term="naval dominance">naval power</span>), and ideological rationales (<span class="dict-term" data-term="civilising mission">civilising mission</span> / <span class="dict-term" data-term="Manifest Destiny">Manifest Destiny</span>).</div>
+                            </div>
+                        </label>
+
+                        <label class="flex items-start gap-3 p-3 rounded-xl border border-slate-200 hover:bg-slate-50 cursor-pointer transition">
+                            <input type="checkbox" id="chk-3" class="c1-check mt-0.5 w-4 h-4 rounded accent-[#012169]" onchange="updateChecklistScore()">
+                            <div>
+                                <div class="text-sm font-bold text-slate-800">3. <span class="dict-term" data-term="nuance">Nuanced</span> &amp; Balanced Argumentation</div>
+                                <div class="text-xs text-slate-500">I avoided sweeping generalisations and qualified my claims using appropriate hedging and concessive clauses.</div>
+                            </div>
+                        </label>
+
+                        <label class="flex items-start gap-3 p-3 rounded-xl border border-slate-200 hover:bg-slate-50 cursor-pointer transition">
+                            <input type="checkbox" id="chk-4" class="c1-check mt-0.5 w-4 h-4 rounded accent-[#012169]" onchange="updateChecklistScore()">
+                            <div>
+                                <div class="text-sm font-bold text-slate-800">4. Syntactic Variety &amp; Spelling Consistency (UK or US)</div>
+                                <div class="text-xs text-slate-500">I used complex sentence structures, accurate tenses (past simple for historical events / present simple for analysis), and consistent spelling throughout—either British (<em>civilising, decolonisation, favoured</em>) or American (<em>civilizing, decolonization, favored</em>), without mixing both.</div>
+                            </div>
+                        </label>
+
+                        <label class="flex items-start gap-3 p-3 rounded-xl border border-slate-200 hover:bg-slate-50 cursor-pointer transition">
+                            <input type="checkbox" id="chk-5" class="c1-check mt-0.5 w-4 h-4 rounded accent-[#012169]" onchange="updateChecklistScore()">
+                            <div>
+                                <div class="text-sm font-bold text-slate-800">5. Target Word Count (180–220 Words)</div>
+                                <div class="text-xs text-slate-500">My paragraph is concise, dense, and falls within or close to the 180–220 word requirement.</div>
+                            </div>
+                        </label>
+
+                        <!-- Spelling Consistency Detector Card (Stage 4) -->
+                        <div id="spelling-consistency-stage4" class="p-3.5 rounded-xl bg-slate-50 border border-slate-200 space-y-2 text-xs">
+                            <div class="flex items-center justify-between gap-2">
+                                <span class="font-extrabold text-[11px] uppercase tracking-wider text-[#012169]">UK / US Spelling Consistency Detector</span>
+                                <span id="spelling-status-badge-s4" class="text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-slate-200 text-slate-700">No UK/US variant pairs detected yet</span>
+                            </div>
+                            <p class="text-slate-700 leading-relaxed">
+                                <strong>Accepted varieties:</strong> American English spelling is accepted, provided you keep your spelling consistent throughout your piece—choose one variety (UK or US) and do not mix them.
+                            </p>
+                            <div id="spelling-details-s4" class="text-[11px] text-slate-600 space-y-1"></div>
+                        </div>
+
+                        <!-- Targeted Proofreading Pass Box -->
+                        <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200 space-y-1.5 text-xs">
+                            <div class="font-extrabold text-[11px] uppercase tracking-wider text-[#012169]">Targeted Proofreading Pass (Self-Audit)</div>
+                            <ul class="space-y-1 text-slate-700 leading-relaxed">
+                                <li>• <strong>Tense consistency:</strong> Past simple for historical actions (<em>sought, annexed, expanded</em>); present simple for your analytical argument and contemporary links (<em>illustrates, reveals, persists</em>).</li>
+                                <li>• <strong>Spelling consistency (UK or US):</strong> American spelling is accepted, so pick one variety and stick to it throughout—check <em>-ise / -isation</em> vs. <em>-ize / -ization</em> (<em>civilising / civilizing, decolonisation / decolonization, colonisation / colonization, industrialisation / industrialization, prioritise / prioritize, recognise / recognize, characterise / characterize</em>) and <em>-our</em> vs. <em>-or</em> (<em>favour / favor, behaviour / behavior, colour / color, endeavour / endeavor</em>), without mixing UK and US forms in the same text.</li>
+                                <li>• <strong>Subject–verb agreement:</strong> Check singular vs. plural subjects across long clauses (e.g. <em>this shift shows</em> vs. <em>these policies show</em>).</li>
+                                <li>• <strong>Word count calibration:</strong> Trim wordy fillers or expand thin clauses so your draft sits cleanly around 180–220 words.</li>
+                            </ul>
+                        </div>
+
+                        <!-- Keyword Highlighter Input -->
+                        <div class="p-3.5 rounded-xl bg-brass-light/80 border border-brass-border space-y-2">
+                            <label for="key-expressions" class="block text-xs font-bold text-slate-900">
+                                Self-Reflection &amp; Live Highlighter: type 2+ key geopolitical terms you reinvested (separated by commas) to highlight them in your preview:
+                            </label>
+                            <input type="text" id="key-expressions" oninput="handleKeywordHighlight()"
+                                placeholder="e.g. hegemony, naval dominance, civilising mission, decolonisation"
+                                class="w-full rounded-lg border border-brass-border bg-white px-3 py-1.5 text-xs text-slate-800">
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Final Preview with Highlighter & Export Actions (6 cols) -->
+                    <div class="lg:col-span-6 flex flex-col justify-between space-y-4">
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between">
+                                <h3 class="text-xs font-extrabold text-slate-900 uppercase tracking-wider">Final Text Preview</h3>
+                                <button type="button" onclick="toggleQuickEdit()" id="btn-toggle-edit" class="text-xs font-semibold text-[#012169] hover:underline">
+                                    Make quick edits ✎
+                                </button>
+                            </div>
+
+                            <!-- Read-Only Formatted Preview with Keyword Highlighting -->
+                            <div id="final-preview-box" class="w-full min-h-[220px] max-h-[300px] overflow-y-auto rounded-xl border border-slate-300 bg-slate-50/90 p-4 font-serif text-sm leading-relaxed text-slate-900 whitespace-pre-wrap"></div>
+
+                            <!-- Optional Inline Editor (toggled if student wants to polish text directly in Step 4) -->
+                            <textarea id="final-review-editor" rows="10" oninput="syncFromFinalEditor()"
+                                class="hidden w-full rounded-xl border border-royal-border bg-white p-4 font-serif text-sm leading-relaxed text-slate-900"></textarea>
+                        </div>
+
+                        <!-- Student Name & Export Card -->
+                        <div class="bg-gradient-to-br from-[#012169] via-[#0A3161] to-[#8f1434] rounded-2xl p-4 text-white space-y-3 shadow-sm">
+                            <div class="flex items-center justify-between gap-2 text-[11px] bg-black/20 border border-white/15 rounded-xl px-3 py-1.5 text-amber-100">
+                                <span>Pearltrees integrity log: <strong id="pearltrees-tab-summary">0 tab exit(s) recorded</strong></span>
+                                <span class="text-white/75 hidden sm:inline">Included on copy &amp; export</span>
+                            </div>
+                            <div>
+                                <label for="student-name" class="block text-[11px] font-bold uppercase tracking-wider text-slate-200 mb-1">
+                                    Student Name &amp; Class (optional — included in exported worksheet)
+                                </label>
+                                <input type="text" id="student-name" oninput="saveState()" placeholder="e.g. Camille Laurent — Terminale AMC"
+                                    class="w-full rounded-xl bg-white/15 border border-white/25 px-3 py-1.5 text-xs text-white placeholder:text-slate-300 focus:border-[#C5A059]">
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1">
+                                <button type="button" onclick="copyFinalEssay()" class="w-full py-2.5 px-3.5 rounded-xl bg-white hover:bg-slate-100 text-[#012169] font-extrabold text-xs transition flex items-center justify-center gap-2 shadow-xs">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+                                    Copy Final Text to Clipboard
+                                </button>
+                                <button type="button" onclick="downloadFullReport()" class="w-full py-2.5 px-3.5 rounded-xl bg-[#C5A059] hover:bg-[#b59049] text-slate-950 font-extrabold text-xs transition flex items-center justify-center gap-2 shadow-xs">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+                                    Download Complete Worksheet (.txt)
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bottom Bar: Navigation & Reset with Two-Step Confirmation -->
+                <div class="mt-6 flex flex-wrap items-center justify-between gap-3 pt-3 border-t border-slate-100">
+                    <button onclick="goToStep(3)" class="px-4 py-2 rounded-xl border border-slate-300 hover:bg-slate-50 text-slate-700 text-sm font-semibold transition">
+                        ← Back to Editor
+                    </button>
+                    <div class="flex items-center gap-2">
+                        <button id="btn-reset-all" onclick="handleResetRequest()" class="text-xs font-semibold text-slate-400 hover:text-[#C8102E] px-3 py-1.5 rounded-lg transition">
+                            Clear All Work
+                        </button>
+                        <button id="btn-reset-confirm" onclick="executeResetAllWork()" class="hidden text-xs font-bold bg-[#C8102E] text-white px-3 py-1.5 rounded-lg shadow-xs transition">
+                            Confirm: Erase Everything?
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- SUBTLE ACADEMIC FOOTER -->
+    <footer class="max-w-6xl w-full mx-auto px-4 sm:px-6 py-4 text-center sm:text-left flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 border-t border-slate-200/80">
+        <span>Terminale Spécialité — <em>Anglais, Monde Contemporain</em> (AMC)</span>
+        <span>Progress automatically saved in your browser</span>
+    </footer>
+
+    <!-- HIDDEN TEXTAREA FOR IFRAME-SAFE CLIPBOARD COPY -->
+    <textarea id="clipboard-helper" class="sr-only" aria-hidden="true"></textarea>
+
+    <!-- ===================================================================== -->
+    <!-- FLOATING CLICK-TO-DEFINE WORD POPOVER CARD                            -->
+    <!-- ===================================================================== -->
+    <div id="word-popover" role="dialog" aria-labelledby="popover-headword" class="hidden fixed z-50 w-80 sm:w-96 rounded-2xl bg-white border-2 border-[#012169] shadow-2xl overflow-hidden transition-all duration-150">
+        <!-- Transatlantic Accent Header -->
+        <div class="bg-gradient-to-r from-[#012169] via-[#0A3161] to-[#8f1434] px-4 py-2.5 text-white flex items-start justify-between gap-2">
+            <div>
+                <div class="flex items-center gap-2 flex-wrap">
+                    <h3 id="popover-headword" class="font-serif font-bold text-base tracking-tight text-white">hegemony</h3>
+                    <span id="popover-ipa" class="font-mono text-xs text-amber-200">/hɪˈɡem.ə.ni/</span>
+                </div>
+                <div class="flex items-center gap-2 mt-0.5">
+                    <span id="popover-pos" class="text-[11px] italic text-slate-200">noun</span>
+                    <span class="text-[10px] uppercase tracking-wider px-1.5 py-0.2 rounded bg-white/15 text-white font-semibold">British English • C1</span>
+                </div>
+            </div>
+            <button type="button" onclick="closeWordPopover()" class="text-white/80 hover:text-white p-1 rounded-lg hover:bg-white/10 transition" aria-label="Close definition">
+                ✕
+            </button>
+        </div>
+
+        <div class="p-4 space-y-3 text-xs">
+            <div>
+                <div class="text-[10px] font-extrabold uppercase tracking-wider text-slate-400 mb-0.5">Definition</div>
+                <p id="popover-definition" class="text-slate-800 text-sm leading-snug font-medium"></p>
+            </div>
+
+            <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-200/90">
+                <div class="text-[10px] font-extrabold uppercase tracking-wider text-[#012169] mb-0.5">Historical / AMC Context</div>
+                <p id="popover-example" class="text-slate-700 italic leading-relaxed"></p>
+            </div>
+
+            <div class="flex items-center justify-between gap-2 pt-1">
+                <button type="button" onclick="openDictionaryDrawer(currentPopoverWord)" class="text-[11px] font-bold text-[#012169] hover:underline">
+                    View in full dictionary →
+                </button>
+                <button type="button" onclick="insertPopoverWordToEssay()" class="px-3 py-1.5 rounded-xl bg-[#012169] hover:bg-[#001547] text-white font-bold text-xs transition flex items-center gap-1.5 shadow-2xs">
+                    <span>+ Insert into Essay</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===================================================================== -->
+    <!-- SEARCHABLE & BROWSABLE C1 BRITISH ENGLISH DICTIONARY DRAWER           -->
+    <!-- ===================================================================== -->
+    <div id="dictionary-backdrop" onclick="closeDictionaryDrawer()" class="hidden fixed inset-0 z-50 bg-slate-900/45 backdrop-blur-xs transition-opacity"></div>
+
+    <aside id="dictionary-drawer" aria-label="C1 British English Dictionary" class="fixed top-0 right-0 z-50 h-full w-full max-w-md bg-white shadow-2xl border-l border-slate-200 transform translate-x-full transition-transform duration-300 flex flex-col">
+        <!-- Drawer Top Ribbon -->
+        <div class="h-1.5 w-full flex">
+            <div class="w-1/2 bg-[#012169]"></div>
+            <div class="w-1/2 bg-[#B31942]"></div>
+        </div>
+
+        <!-- Drawer Header -->
+        <div class="p-4 sm:p-5 bg-gradient-to-r from-[#012169] via-[#0A3161] to-[#7a122e] text-white flex items-center justify-between">
+            <div>
+                <div class="flex items-center gap-2">
+                    <span class="text-[10px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded bg-[#C5A059] text-slate-950">Oxford / Cambridge Style</span>
+                    <span class="text-xs text-slate-200">Terminale AMC</span>
+                </div>
+                <h2 class="text-lg font-extrabold tracking-tight mt-1">C1 British English Dictionary</h2>
+            </div>
+            <button type="button" onclick="closeDictionaryDrawer()" class="w-8 h-8 rounded-xl bg-white/15 hover:bg-white/25 text-white flex items-center justify-center font-bold transition" aria-label="Close dictionary">
+                ✕
+            </button>
+        </div>
+
+        <!-- Search & Category Filter Controls -->
+        <div class="p-4 border-b border-slate-200 bg-slate-50 space-y-3">
+            <div class="relative">
+                <svg class="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+                <input type="text" id="dict-search-input" oninput="renderDictionaryList()" placeholder="Search a word, definition, or concept..."
+                    class="w-full rounded-xl border border-slate-300 bg-white pl-9 pr-8 py-2 text-xs text-slate-800 placeholder:text-slate-400">
+                <button type="button" onclick="clearDictionarySearch()" id="btn-clear-dict-search" class="hidden absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-700 text-xs font-bold">✕</button>
+            </div>
+
+            <!-- Category Filter Pills -->
+            <div id="dict-category-pills" class="flex flex-wrap gap-1.5">
+                <button type="button" data-cat="All" onclick="setDictionaryCategory('All')" class="dict-cat-btn px-2.5 py-1 rounded-lg text-[11px] font-bold bg-[#012169] text-white transition">All Terms</button>
+                <button type="button" data-cat="Power & Strategy" onclick="setDictionaryCategory('Power & Strategy')" class="dict-cat-btn px-2.5 py-1 rounded-lg text-[11px] font-semibold bg-white border border-slate-200 text-slate-700 hover:bg-slate-100 transition">Power &amp; Strategy</button>
+                <button type="button" data-cat="Ideology & Culture" onclick="setDictionaryCategory('Ideology & Culture')" class="dict-cat-btn px-2.5 py-1 rounded-lg text-[11px] font-semibold bg-white border border-slate-200 text-slate-700 hover:bg-slate-100 transition">Ideology &amp; Culture</button>
+                <button type="button" data-cat="Economy & Trade" onclick="setDictionaryCategory('Economy & Trade')" class="dict-cat-btn px-2.5 py-1 rounded-lg text-[11px] font-semibold bg-white border border-slate-200 text-slate-700 hover:bg-slate-100 transition">Economy &amp; Trade</button>
+                <button type="button" data-cat="Decline & Legacy" onclick="setDictionaryCategory('Decline & Legacy')" class="dict-cat-btn px-2.5 py-1 rounded-lg text-[11px] font-semibold bg-white border border-slate-200 text-slate-700 hover:bg-slate-100 transition">Decline &amp; Legacy</button>
+                <button type="button" data-cat="Analytical Essay" onclick="setDictionaryCategory('Analytical Essay')" class="dict-cat-btn px-2.5 py-1 rounded-lg text-[11px] font-semibold bg-white border border-slate-200 text-slate-700 hover:bg-slate-100 transition">Analytical Essay</button>
+            </div>
+        </div>
+
+        <!-- Scrollable Entries List -->
+        <div id="dict-entries-container" class="flex-1 overflow-y-auto p-4 space-y-3"></div>
+    </aside>
+
+    <script>
+        // =========================================================================
+        // COMPREHENSIVE C1 BRITISH ENGLISH DICTIONARY DATABASE
+        // =========================================================================
+        const BRITISH_DICTIONARY = [
+            {
+                term: "assimilation",
+                ipa: "/əˌsɪm.ɪˈleɪ.ʃən/",
+                pos: "noun",
+                category: "Ideology & Culture",
+                definition: "The process by which colonised or minority populations are pressured or encouraged to adopt the language, customs, and values of a dominant imperial culture.",
+                example: "Educational policies in both empires frequently promoted cultural assimilation alongside administrative control."
+            },
+            {
+                term: "autonomy",
+                ipa: "/ɔːˈtɒn.ə.mi/",
+                pos: "noun",
+                category: "Decline & Legacy",
+                definition: "The right or condition of self-government, enabling a territory or community to manage its own affairs independently of external imperial control.",
+                example: "Settler colonies such as Canada and Australia gradually gained political autonomy as British dominions."
+            },
+            {
+                term: "civilising mission",
+                ipa: "/ˈsɪv.əl.aɪ.zɪŋ ˌmɪʃ.ən/",
+                pos: "noun phrase",
+                category: "Ideology & Culture",
+                definition: "A paternalistic rationale used by imperial powers to justify foreign rule as a moral duty to bring Western law, religion, education, and progress to supposedly 'backward' societies.",
+                example: "Victorian commentators framed British expansion in Africa and Asia as a benevolent civilising mission."
+            },
+            {
+                term: "coercion",
+                ipa: "/kəʊˈɜː.ʃən/",
+                pos: "noun",
+                category: "Power & Strategy",
+                definition: "The practice of persuading or forcing a state or population to comply through military threats, economic sanctions, or physical force.",
+                example: "Unlike soft power, traditional gunboat diplomacy relied openly on naval coercion to extract trade concessions."
+            },
+            {
+                term: "colonialism",
+                ipa: "/kəˈləʊ.ni.əl.ɪ.zəm/",
+                pos: "noun",
+                category: "Power & Strategy",
+                definition: "The policy or practice of acquiring full or partial political control over another territory, occupying it with settlers, and exploiting it economically.",
+                example: "British colonialism relied heavily on direct territorial administration and settler colonies across five continents."
+            },
+            {
+                term: "commonwealth",
+                ipa: "/ˈkɒm.ən.welθ/",
+                pos: "noun",
+                category: "Decline & Legacy",
+                definition: "A voluntary political association of 56 sovereign states, almost all of which are former territories of the British Empire, cooperating on trade, diplomacy, and shared institutions.",
+                example: "Following decolonisation, the Commonwealth preserved diplomatic and cultural links between Britain and its former colonies."
+            },
+            {
+                term: "decolonisation",
+                ipa: "/ˌdiː.kɒl.ə.naɪˈzeɪ.ʃən/",
+                pos: "noun",
+                category: "Decline & Legacy",
+                definition: "The historical process by which colonies achieved political independence and dismantled formal European imperial rule, accelerating markedly after 1945.",
+                example: "Financial exhaustion after the Second World War accelerated the decolonisation of the British Empire."
+            },
+            {
+                term: "expansionism",
+                ipa: "/ɪkˈspæn.ʃən.ɪ.zəm/",
+                pos: "noun",
+                category: "Power & Strategy",
+                definition: "A state policy of territorial or economic enlargement, typically pursued through military conquest, annexation, or commercial penetration abroad.",
+                example: "Late-nineteenth-century American expansionism sought new coaling stations and markets across the Pacific."
+            },
+            {
+                term: "exploitation",
+                ipa: "/ˌek.splɔɪˈteɪ.ʃən/",
+                pos: "noun",
+                category: "Economy & Trade",
+                definition: "The systematic extraction of natural resources and use of local labour by an imperial power for its own metropolitan profit, often to the detriment of the colonised population.",
+                example: "Mercantilist trade networks prioritised the economic exploitation of colonial raw materials."
+            },
+            {
+                term: "geopolitical",
+                ipa: "/ˌdʒiː.əʊ.pəˈlɪt.ɪ.kəl/",
+                pos: "adjective",
+                category: "Power & Strategy",
+                definition: "Relating to politics, international relations, and strategic rivalry as influenced by geographical factors such as sea lanes, choke points, and natural resources.",
+                example: "Constructing the Panama Canal gave the United States decisive geopolitical leverage over maritime trade."
+            },
+            {
+                term: "hard power",
+                ipa: "/ˌhɑːd ˈpaʊər/",
+                pos: "noun phrase",
+                category: "Power & Strategy",
+                definition: "The use of military force and economic coercion to influence the behaviour or interests of other international actors.",
+                example: "Both the Royal Navy and America's Great White Fleet projected unmistakable hard power across the globe."
+            },
+            {
+                term: "hegemony",
+                ipa: "/hɪˈɡem.ə.ni/",
+                pos: "noun",
+                category: "Power & Strategy",
+                definition: "Preponderant political, economic, or military leadership and dominance exercised by one state over others within an international system.",
+                example: "After 1945, global maritime and financial hegemony passed decisively from the British Empire to the United States."
+            },
+            {
+                term: "imperial overstretch",
+                ipa: "/ɪmˌpɪə.ri.əl ˈəʊ.və.stretʃ/",
+                pos: "noun phrase",
+                category: "Decline & Legacy",
+                definition: "A situation in which an empire expands its military and administrative commitments beyond the economic resources required to sustain them.",
+                example: "Historians frequently cite imperial overstretch to explain why Britain struggled to defend its global possessions after 1918."
+            },
+            {
+                term: "imperialism",
+                ipa: "/ɪmˈpɪə.ri.ə.lɪ.zəm/",
+                pos: "noun",
+                category: "Power & Strategy",
+                definition: "A policy or ideology of extending a nation's power and influence over foreign lands through diplomacy, economic dominance, or military force.",
+                example: "American imperialism in the 1890s debated whether a republic could legitimately govern overseas territories."
+            },
+            {
+                term: "indirect rule",
+                ipa: "/ˌɪn.daɪ.rekt ˈruːl/",
+                pos: "noun phrase",
+                category: "Power & Strategy",
+                definition: "A system of colonial governance in which an imperial power exercises control through pre-existing indigenous rulers and local institutions rather than direct metropolitan bureaucracy.",
+                example: "Britain relied extensively on indirect rule in parts of India and Africa to administer vast populations with minimal personnel."
+            },
+            {
+                term: "interventionism",
+                ipa: "/ˌɪn.təˈven.ʃən.ɪ.zəm/",
+                pos: "noun",
+                category: "Power & Strategy",
+                definition: "A foreign policy doctrine advocating active diplomatic, economic, or military involvement in the affairs of other sovereign states.",
+                example: "The Spanish-American War marked a decisive shift from continental isolationism to overseas interventionism."
+            },
+            {
+                term: "isolationism",
+                ipa: "/ˌaɪ.səˈleɪ.ʃən.ɪ.zəm/",
+                pos: "noun",
+                category: "Power & Strategy",
+                definition: "A policy of remaining apart from the political affairs, entangling alliances, or territorial conflicts of foreign powers.",
+                example: "Late-nineteenth-century American industrialists argued that strict isolationism would deprive the US of vital export markets."
+            },
+            {
+                term: "legacy",
+                ipa: "/ˈleɡ.ə.si/",
+                pos: "noun",
+                category: "Decline & Legacy",
+                definition: "The long-lasting political, linguistic, cultural, or structural consequences left behind by an historical era or empire.",
+                example: "The global prevalence of the English language remains one of the most enduring legacies of British and American influence."
+            },
+            {
+                term: "Manifest Destiny",
+                ipa: "/ˌmæn.ɪ.fest ˈdes.tɪ.ni/",
+                pos: "proper noun",
+                category: "Ideology & Culture",
+                definition: "The nineteenth-century American belief that the United States was providentially destined to expand its territory, institutions, and influence across the North American continent and beyond.",
+                example: "Proponents of overseas expansion adapted Manifest Destiny to justify annexing Hawaii and the Philippines."
+            },
+            {
+                term: "mercantilism",
+                ipa: "/ˈmɜː.kən.taɪ.lɪ.zəm/",
+                pos: "noun",
+                category: "Economy & Trade",
+                definition: "An early modern economic doctrine holding that national wealth and power are best increased by regulating trade, establishing monopolies, and maintaining a positive balance of exports over imports.",
+                example: "Chartered monopolies such as the East India Company embodied British mercantilism."
+            },
+            {
+                term: "naval dominance",
+                ipa: "/ˌneɪ.vəl ˈdɒm.ɪ.nəns/",
+                pos: "noun phrase",
+                category: "Power & Strategy",
+                definition: "Supremacy at sea enabling a state to control international shipping lanes, protect commercial fleets, and project military power worldwide.",
+                example: "Inspired by Alfred Thayer Mahan, Washington pursued naval dominance to rival Britain's Royal Navy."
+            },
+            {
+                term: "nuance",
+                ipa: "/ˈnjuː.ɑːns/",
+                pos: "noun",
+                category: "Analytical Essay",
+                definition: "A subtle distinction or qualification in meaning, tone, or argument that avoids simplistic black-and-white generalisations.",
+                example: "In an AMC essay, introducing nuance shows that both empires faced domestic criticism and practical limits."
+            },
+            {
+                term: "overseas markets",
+                ipa: "/ˌəʊ.vəˈsiːz ˈmɑː.kɪts/",
+                pos: "noun phrase",
+                category: "Economy & Trade",
+                definition: "Foreign commercial outlets where a country sells its manufactured goods or invests surplus capital.",
+                example: "Securing overseas markets in Latin America and Asia was a primary goal of American imperialism."
+            },
+            {
+                term: "protectorate",
+                ipa: "/prəˈtek.tər.ət/",
+                pos: "noun",
+                category: "Power & Strategy",
+                definition: "A state or territory that retains nominal internal self-government while remaining under the diplomatic and military protection—and effective control—of a stronger imperial power.",
+                example: "Following the 1898 war, Cuba became a de facto American protectorate under the Platt Amendment."
+            },
+            {
+                term: "raw materials",
+                ipa: "/ˌrɔː məˈtɪə.ri.əlz/",
+                pos: "noun phrase",
+                category: "Economy & Trade",
+                definition: "Unprocessed natural resources—such as cotton, rubber, oil, or minerals—used as basic inputs for industrial manufacturing.",
+                example: "Industrialising Britain depended on colonies for inexpensive raw materials like Indian cotton and Malayan rubber."
+            },
+            {
+                term: "social Darwinism",
+                ipa: "/ˌsəʊ.ʃəl ˈdɑː.wɪ.nɪ.zəm/",
+                pos: "noun phrase",
+                category: "Ideology & Culture",
+                definition: "A discredited nineteenth-century pseudoscientific theory that misapplied Charles Darwin's concept of 'survival of the fittest' to human societies to justify racial hierarchy and imperial conquest.",
+                example: "Imperialists on both sides of the Atlantic invoked social Darwinism to portray global competition as natural law."
+            },
+            {
+                term: "soft power",
+                ipa: "/ˌsɒft ˈpaʊər/",
+                pos: "noun phrase",
+                category: "Power & Strategy",
+                definition: "A concept coined by Joseph Nye describing a country's ability to shape the preferences of others through cultural appeal, values, diplomacy, and institutions rather than coercion.",
+                example: "In the contemporary era, American soft power operates through global media, technology, and higher education."
+            },
+            {
+                term: "sovereignty",
+                ipa: "/ˈsɒv.rɪn.ti/",
+                pos: "noun",
+                category: "Decline & Legacy",
+                definition: "Supreme and independent political authority exercised by a state over its own territory and citizens without external interference.",
+                example: "Anti-imperialists argued that annexing foreign populations violated the principle of popular sovereignty."
+            },
+            {
+                term: "sphere of influence",
+                ipa: "/ˌsfɪər əv ˈɪn.flu.əns/",
+                pos: "noun phrase",
+                category: "Power & Strategy",
+                definition: "A region or country over which a powerful external nation claims exclusive economic, political, or strategic predominance without formal annexation.",
+                example: "Through the Monroe Doctrine, the United States asserted the Western Hemisphere as its exclusive sphere of influence."
+            },
+            {
+                term: "strategic",
+                ipa: "/strəˈtiː.dʒɪk/",
+                pos: "adjective",
+                category: "Power & Strategy",
+                definition: "Carefully designed to serve long-term geopolitical, military, or commercial objectives.",
+                example: "Britain controlled strategic maritime choke points such as Gibraltar, Suez, and Singapore."
+            },
+            {
+                term: "subjugation",
+                ipa: "/ˌsʌb.dʒʊˈɡeɪ.ʃən/",
+                pos: "noun",
+                category: "Ideology & Culture",
+                definition: "The act of bringing a people or territory under complete domination and control by force or political subordination.",
+                example: "Colonial expansion frequently entailed the economic and political subjugation of indigenous populations."
+            },
+            {
+                term: "surplus",
+                ipa: "/ˈsɜː.pləs/",
+                pos: "noun / adjective",
+                category: "Economy & Trade",
+                definition: "An excess quantity of manufactured goods, agricultural produce, or capital beyond what a domestic market can absorb.",
+                example: "Rapid industrial growth created a manufacturing surplus that compelled American businesses to look abroad."
+            },
+            {
+                term: "synthesis",
+                ipa: "/ˈsɪn.θə.sɪs/",
+                pos: "noun",
+                category: "Analytical Essay",
+                definition: "The combination of ideas and evidence from multiple sources into a coherent, unified analytical argument rather than separate summaries.",
+                example: "A successful AMC paragraph achieves a genuine synthesis of British and American imperial strategies."
+            }
+        ];
+
+        // =========================================================================
+        // STATE MANAGEMENT & LOCAL STORAGE PERSISTENCE
+        // =========================================================================
+        const STORAGE_KEY = 'amc_transatlantic_workshop_en_v1';
+        let currentStep = 1;
+        let isQuickEditOpen = false;
+        let resetConfirmTimeout = null;
+        let currentPopoverWord = null;
+        let activeDictCategory = 'All';
+
+        // 45-Minute Timer State (2,700 seconds)
+        const TOTAL_SECONDS = 45 * 60;
+        let remainingSeconds = TOTAL_SECONDS;
+        let timerInterval = null;
+        let isRunning = false;
+        let lastNotifiedPhase = 1;
+
+        // Discreet Tab-Switch Spy State
+        let tabExitCount = 0;
+        let tabExitLogs = [];
+        let lastTabExitTimestamp = 0;
+
+        window.addEventListener('DOMContentLoaded', () => {
+            loadState();
+            initTabExitSpy();
+            updateTabExitUI();
+            updateWordCount();
+            updateParagraphCoach();
+            updateSpellingConsistency();
+            updateTimerDisplay();
+            renderFinalPreview();
+            initDictionaryInteractions();
+            renderDictionaryList();
+        });
+
+        // =========================================================================
+        // DISCREET TAB-SWITCH SPY (DEBOUNCED VISIBILITY & BLUR MONITORING)
+        // =========================================================================
+        function recordTabExit(source = 'visibility') {
+            const now = Date.now();
+            // Debounce within 900ms so visibilitychange + blur on the same tab switch counts once
+            if (now - lastTabExitTimestamp < 900) return;
+            lastTabExitTimestamp = now;
+
+            tabExitCount += 1;
+            const elapsedSeconds = TOTAL_SECONDS - remainingSeconds;
+            const elapsedMins = Math.floor(elapsedSeconds / 60);
+            const elapsedSecs = elapsedSeconds % 60;
+            const clockStamp = new Date(now).toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+            const workshopStamp = `${String(elapsedMins).padStart(2, '0')}:${String(elapsedSecs).padStart(2, '0')} elapsed`;
+
+            tabExitLogs.push(`#${tabExitCount} at ${clockStamp} (${workshopStamp}, Step ${currentStep}, ${source})`);
+            if (tabExitLogs.length > 50) {
+                tabExitLogs = tabExitLogs.slice(-50);
+            }
+
+            updateTabExitUI();
+            saveState();
+        }
+
+        function initTabExitSpy() {
+            document.addEventListener('visibilitychange', () => {
+                if (document.hidden) {
+                    recordTabExit('tab hidden');
+                }
+            });
+
+            window.addEventListener('blur', () => {
+                // Only record if document is hidden or focus moved outside the browsing context
+                setTimeout(() => {
+                    if (document.hidden || document.activeElement === document.body) {
+                        recordTabExit('window blur');
+                    }
+                }, 120);
+            });
+        }
+
+        function updateTabExitUI() {
+            const countEl = document.getElementById('tab-exit-count');
+            const summaryEl = document.getElementById('pearltrees-tab-summary');
+            const badgeEl = document.getElementById('tab-exit-badge');
+
+            if (countEl) countEl.textContent = String(tabExitCount);
+            if (summaryEl) {
+                summaryEl.textContent = `${tabExitCount} tab exit${tabExitCount === 1 ? '' : 's'} recorded`;
+            }
+            if (badgeEl) {
+                if (tabExitCount === 0) {
+                    badgeEl.className = 'text-[11px] font-semibold text-slate-600 bg-slate-100 border border-slate-200 px-2 py-0.5 rounded-full inline-flex items-center gap-1';
+                } else {
+                    badgeEl.className = 'text-[11px] font-bold text-[#B31942] bg-us-light border border-us-border px-2 py-0.5 rounded-full inline-flex items-center gap-1';
+                }
+            }
+        }
+
+        function buildPearltreesAuditBlock() {
+            const logLine = tabExitLogs.length > 0 ? tabExitLogs.join(' | ') : 'None (stayed on workshop tab)';
+            return [
+                '--------------------------------------------------------------------',
+                'PEARLTREES TEAM FOLDER — WORKFLOW & TAB-SWITCH LOG',
+                '--------------------------------------------------------------------',
+                `Browser tab exits recorded: ${tabExitCount}`,
+                `Exit log: ${logLine}`,
+                'Note: Methodological scaffolds & C1 British dictionary are built into this page.'
+            ].join('\n');
+        }
+
+        // =========================================================================
+        // INTERACTIVE CLICK-TO-DEFINE & DICTIONARY DRAWER LOGIC
+        // =========================================================================
+        function findDictionaryEntry(query) {
+            if (!query) return null;
+            const normalised = query.trim().toLowerCase().replace(/[.,;:!?"'()]+$/g, '').replace(/^[.,;:!?"'()]+/g, '');
+            if (!normalised) return null;
+
+            // 1. Exact match
+            let match = BRITISH_DICTIONARY.find(item => item.term.toLowerCase() === normalised);
+            if (match) return match;
+
+            // 2. Simple morphological matching (plurals, -ing, -ed, -ised/-ized)
+            const stems = [
+                normalised.replace(/ies$/, 'y'),
+                normalised.replace(/s$/, ''),
+                normalised.replace(/ed$/, ''),
+                normalised.replace(/ed$/, 'e'),
+                normalised.replace(/ing$/, ''),
+                normalised.replace(/ing$/, 'e'),
+                normalised.replace(/ized$/, 'ise'),
+                normalised.replace(/izing$/, 'ising'),
+                normalised.replace(/ization$/, 'isation')
+            ];
+            for (const stem of stems) {
+                match = BRITISH_DICTIONARY.find(item => item.term.toLowerCase() === stem);
+                if (match) return match;
+            }
+
+            // 3. Partial inclusion match for multi-word terms
+            match = BRITISH_DICTIONARY.find(item => item.term.toLowerCase().includes(normalised) && normalised.length >= 5);
+            return match || null;
+        }
+
+        function initDictionaryInteractions() {
+            // Delegate clicks on any .dict-term element across the page
+            document.addEventListener('click', (e) => {
+                const termEl = e.target.closest('.dict-term');
+                if (termEl) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    const termKey = termEl.getAttribute('data-term') || termEl.textContent.trim();
+                    openWordPopover(termKey, termEl);
+                    return;
+                }
+
+                // Close popover if clicking outside popover & outside triggers
+                const popover = document.getElementById('word-popover');
+                if (!popover.classList.contains('hidden') && !popover.contains(e.target) && !e.target.closest('[onclick*="openWordPopover"]')) {
+                    closeWordPopover();
+                }
+            });
+
+            // Keyboard Escape support for popover & drawer
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    closeWordPopover();
+                    closeDictionaryDrawer();
+                }
+            });
+        }
+
+        function openWordPopover(termKey, anchorEl) {
+            const entry = findDictionaryEntry(termKey);
+            if (!entry) {
+                openDictionaryDrawer(termKey);
+                return;
+            }
+
+            currentPopoverWord = entry.term;
+            document.getElementById('popover-headword').textContent = entry.term;
+            document.getElementById('popover-ipa').textContent = entry.ipa;
+            document.getElementById('popover-pos').textContent = entry.pos;
+            document.getElementById('popover-definition').textContent = entry.definition;
+            document.getElementById('popover-example').textContent = `"${entry.example}"`;
+
+            const popover = document.getElementById('word-popover');
+            popover.classList.remove('hidden');
+
+            // Smart viewport positioning near the clicked element
+            if (anchorEl && anchorEl.getBoundingClientRect) {
+                const rect = anchorEl.getBoundingClientRect();
+                const popRect = popover.getBoundingClientRect();
+                const margin = 12;
+
+                let top = rect.bottom + 8;
+                if (top + popRect.height > window.innerHeight - margin) {
+                    top = Math.max(margin, rect.top - popRect.height - 8);
+                }
+
+                let left = rect.left;
+                if (left + popRect.width > window.innerWidth - margin) {
+                    left = Math.max(margin, window.innerWidth - popRect.width - margin);
+                }
+                if (left < margin) left = margin;
+
+                popover.style.top = `${top}px`;
+                popover.style.left = `${left}px`;
+            } else {
+                popover.style.top = '88px';
+                popover.style.left = '24px';
+            }
+        }
+
+        function closeWordPopover() {
+            const popover = document.getElementById('word-popover');
+            if (popover) popover.classList.add('hidden');
+        }
+
+        function insertPopoverWordToEssay() {
+            if (!currentPopoverWord) return;
+            insertTermIntoEssayFromDict(currentPopoverWord);
+            closeWordPopover();
+        }
+
+        function insertTermIntoEssayFromDict(term) {
+            if (currentStep !== 3) {
+                goToStep(3);
+            }
+            insertAtCursor('essay-editor', `${term} `);
+            showToast(`Inserted "${term}" into your Stage 3 essay draft.`, "success");
+        }
+
+        function lookupSelectedEssayWord() {
+            const editor = document.getElementById('essay-editor');
+            const start = editor.selectionStart || 0;
+            const end = editor.selectionEnd || 0;
+            const selected = editor.value.substring(start, end).trim();
+
+            if (!selected) {
+                showToast("Highlight a word or phrase inside your essay box first, then click 'Look up selected word'.", "neutral");
+                openDictionaryDrawer();
+                return;
+            }
+
+            const entry = findDictionaryEntry(selected);
+            if (entry) {
+                openWordPopover(entry.term, editor);
+            } else {
+                openDictionaryDrawer(selected);
+                showToast(`"${selected}" is not a headword in the C1 glossary — showing closest matches.`, "neutral");
+            }
+        }
+
+        function openDictionaryDrawer(prefillQuery = '') {
+            closeWordPopover();
+            const backdrop = document.getElementById('dictionary-backdrop');
+            const drawer = document.getElementById('dictionary-drawer');
+            const searchInput = document.getElementById('dict-search-input');
+
+            if (typeof prefillQuery === 'string' && prefillQuery.trim()) {
+                searchInput.value = prefillQuery.trim();
+                setDictionaryCategory('All', false);
+            }
+
+            renderDictionaryList();
+            backdrop.classList.remove('hidden');
+            requestAnimationFrame(() => {
+                drawer.classList.remove('translate-x-full');
+            });
+            setTimeout(() => searchInput.focus(), 180);
+        }
+
+        function closeDictionaryDrawer() {
+            const backdrop = document.getElementById('dictionary-backdrop');
+            const drawer = document.getElementById('dictionary-drawer');
+            drawer.classList.add('translate-x-full');
+            setTimeout(() => {
+                backdrop.classList.add('hidden');
+            }, 250);
+        }
+
+        function setDictionaryCategory(category, shouldRender = true) {
+            activeDictCategory = category;
+            document.querySelectorAll('.dict-cat-btn').forEach(btn => {
+                if (btn.getAttribute('data-cat') === category) {
+                    btn.className = 'dict-cat-btn px-2.5 py-1 rounded-lg text-[11px] font-bold bg-[#012169] text-white transition';
+                } else {
+                    btn.className = 'dict-cat-btn px-2.5 py-1 rounded-lg text-[11px] font-semibold bg-white border border-slate-200 text-slate-700 hover:bg-slate-100 transition';
+                }
+            });
+            if (shouldRender) renderDictionaryList();
+        }
+
+        function clearDictionarySearch() {
+            document.getElementById('dict-search-input').value = '';
+            renderDictionaryList();
+        }
+
+        function renderDictionaryList() {
+            const container = document.getElementById('dict-entries-container');
+            const searchInput = document.getElementById('dict-search-input');
+            const clearBtn = document.getElementById('btn-clear-dict-search');
+            const query = (searchInput.value || '').trim().toLowerCase();
+
+            if (query) {
+                clearBtn.classList.remove('hidden');
+            } else {
+                clearBtn.classList.add('hidden');
+            }
+
+            const filtered = BRITISH_DICTIONARY.filter(item => {
+                const matchesCat = activeDictCategory === 'All' || item.category === activeDictCategory;
+                if (!matchesCat) return false;
+                if (!query) return true;
+                return (
+                    item.term.toLowerCase().includes(query) ||
+                    item.definition.toLowerCase().includes(query) ||
+                    item.example.toLowerCase().includes(query) ||
+                    item.category.toLowerCase().includes(query)
+                );
+            });
+
+            if (filtered.length === 0) {
+                container.innerHTML = `
+                    <div class="text-center py-10 px-4 bg-slate-50 rounded-2xl border border-slate-200">
+                        <p class="text-sm font-bold text-slate-700">No matching glossary entry found</p>
+                        <p class="text-xs text-slate-500 mt-1">Try searching for a broader geopolitical concept (e.g. <em>hegemony</em>, <em>sovereignty</em>, <em>mercantilism</em>) or reset the category filter.</p>
+                        <button type="button" onclick="clearDictionarySearch(); setDictionaryCategory('All');" class="mt-3 px-3 py-1.5 rounded-lg bg-[#012169] text-white text-xs font-bold">Show all ${BRITISH_DICTIONARY.length} terms</button>
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = filtered.map(item => `
+                <article class="rounded-2xl border border-slate-200 hover:border-royal-border bg-white p-3.5 shadow-2xs transition space-y-2">
+                    <div class="flex items-start justify-between gap-2">
+                        <div>
+                            <div class="flex items-center gap-2 flex-wrap">
+                                <h3 class="font-serif font-bold text-sm text-[#012169]">${escapeHtml(item.term)}</h3>
+                                <span class="font-mono text-[11px] text-slate-500">${escapeHtml(item.ipa)}</span>
+                            </div>
+                            <div class="flex items-center gap-1.5 mt-0.5">
+                                <span class="text-[11px] italic text-slate-500">${escapeHtml(item.pos)}</span>
+                                <span class="text-slate-300">•</span>
+                                <span class="text-[10px] font-bold uppercase tracking-wider text-[#B31942]">${escapeHtml(item.category)}</span>
+                            </div>
+                        </div>
+                        <button type="button" onclick="insertTermIntoEssayFromDict('${escapeHtml(item.term).replace(/'/g, "\\'")}'); closeDictionaryDrawer();" class="shrink-0 px-2.5 py-1 rounded-lg bg-royal-light hover:bg-[#012169] text-[#012169] hover:text-white border border-royal-border text-[11px] font-bold transition">
+                            + Insert
+                        </button>
+                    </div>
+                    <p class="text-xs text-slate-800 leading-relaxed">${escapeHtml(item.definition)}</p>
+                    <p class="text-[11px] text-slate-600 italic bg-slate-50 px-2.5 py-1.5 rounded-lg border border-slate-100">“${escapeHtml(item.example)}”</p>
+                </article>
+            `).join('');
+        }
+
+        function saveState() {
+            const state = {
+                studentName: document.getElementById('student-name').value,
+                ukDrivers: document.getElementById('uk-drivers').value,
+                ukTools: document.getElementById('uk-tools').value,
+                ukLimits: document.getElementById('uk-limits').value,
+                usDrivers: document.getElementById('us-drivers').value,
+                usTools: document.getElementById('us-tools').value,
+                usLimits: document.getElementById('us-limits').value,
+                thesis: document.getElementById('thesis-input').value,
+                part1: document.getElementById('outline-part1').value,
+                part2: document.getElementById('outline-part2').value,
+                essay: document.getElementById('essay-editor').value,
+                keyExpressions: document.getElementById('key-expressions').value,
+                tabExitCount: tabExitCount,
+                tabExitLogs: tabExitLogs,
+                checks: [
+                    document.getElementById('chk-1').checked,
+                    document.getElementById('chk-2').checked,
+                    document.getElementById('chk-3').checked,
+                    document.getElementById('chk-4').checked,
+                    document.getElementById('chk-5').checked
+                ]
+            };
+            try {
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+                const badge = document.getElementById('save-status-badge');
+                if (badge) {
+                    badge.classList.remove('opacity-60');
+                }
+            } catch (e) {
+                // Ignore storage quota errors
+            }
+            updateCompletionBadges();
+        }
+
+        function loadState() {
+            try {
+                const raw = localStorage.getItem(STORAGE_KEY);
+                if (!raw) return;
+                const state = JSON.parse(raw);
+                document.getElementById('student-name').value = state.studentName || '';
+                document.getElementById('uk-drivers').value = state.ukDrivers || '';
+                document.getElementById('uk-tools').value = state.ukTools || '';
+                document.getElementById('uk-limits').value = state.ukLimits || '';
+                document.getElementById('us-drivers').value = state.usDrivers || '';
+                document.getElementById('us-tools').value = state.usTools || '';
+                document.getElementById('us-limits').value = state.usLimits || '';
+                document.getElementById('thesis-input').value = state.thesis || '';
+                document.getElementById('outline-part1').value = state.part1 || '';
+                document.getElementById('outline-part2').value = state.part2 || '';
+                document.getElementById('essay-editor').value = state.essay || '';
+                document.getElementById('final-review-editor').value = state.essay || '';
+                document.getElementById('key-expressions').value = state.keyExpressions || '';
+                tabExitCount = Number.isFinite(Number(state.tabExitCount)) ? Number(state.tabExitCount) : 0;
+                tabExitLogs = Array.isArray(state.tabExitLogs) ? state.tabExitLogs : [];
+                if (Array.isArray(state.checks)) {
+                    state.checks.forEach((val, idx) => {
+                        const el = document.getElementById(`chk-${idx + 1}`);
+                        if (el) el.checked = !!val;
+                    });
+                }
+                updateChecklistScore();
+                updateCompletionBadges();
+            } catch (e) {
+                console.warn('Unable to restore local progress.');
+            }
+        }
+
+        // =========================================================================
+        // 4-STAGE STEPPER NAVIGATION
+        // =========================================================================
+        function goToStep(stepNumber) {
+            currentStep = stepNumber;
+
+            document.querySelectorAll('.step-section').forEach(sec => sec.classList.add('hidden'));
+            document.getElementById(`step-${stepNumber}`).classList.remove('hidden');
+
+            for (let i = 1; i <= 4; i++) {
+                const btn = document.getElementById(`nav-step-${i}`);
+                if (i === stepNumber) {
+                    btn.className = 'step-nav-btn text-left px-3 py-2 rounded-xl border-2 border-[#012169] bg-[#012169] text-white transition flex items-center justify-between shadow-xs';
+                    btn.querySelector('div div:first-child').className = 'text-[10px] uppercase tracking-wider opacity-80 font-semibold';
+                } else {
+                    btn.className = 'step-nav-btn text-left px-3 py-2 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 transition flex items-center justify-between';
+                    btn.querySelector('div div:first-child').className = 'text-[10px] uppercase tracking-wider text-slate-400 font-semibold';
+                }
+            }
+
+            const thesisVal = document.getElementById('thesis-input').value.trim();
+            const part1Val = document.getElementById('outline-part1').value.trim();
+            const part2Val = document.getElementById('outline-part2').value.trim();
+            const essayVal = document.getElementById('essay-editor').value;
+
+            if (stepNumber === 2) {
+                document.getElementById('recap-thesis-step2').textContent = thesisVal || "(No thesis formulated in Stage 1 yet — you may return to complete it or begin drafting your outline below.)";
+            }
+            if (stepNumber === 3) {
+                document.getElementById('side-thesis').textContent = thesisVal || "Not yet entered";
+                document.getElementById('side-part1').textContent = part1Val || "Not yet entered";
+                document.getElementById('side-part2').textContent = part2Val || "Not yet entered";
+
+                const ukSummary = [document.getElementById('uk-drivers').value, document.getElementById('uk-tools').value, document.getElementById('uk-limits').value].filter(Boolean).join(' • ');
+                const usSummary = [document.getElementById('us-drivers').value, document.getElementById('us-tools').value, document.getElementById('us-limits').value].filter(Boolean).join(' • ');
+                document.getElementById('side-raw-notes').textContent = `UK: ${ukSummary || '—'}\nUS: ${usSummary || '—'}`;
+            }
+            if (stepNumber === 4) {
+                document.getElementById('final-review-editor').value = essayVal;
+                updateWordCount();
+                renderFinalPreview();
+            }
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function updateCompletionBadges() {
+            const hasStep1 = document.getElementById('thesis-input').value.trim().length > 10;
+            const hasStep2 = document.getElementById('outline-part1').value.trim().length > 10 || document.getElementById('outline-part2').value.trim().length > 10;
+            const words = countWords(document.getElementById('essay-editor').value);
+            const hasStep3 = words >= 160;
+
+            document.getElementById('badge-step-1').className = `w-2 h-2 rounded-full ${hasStep1 ? 'bg-emerald-400' : 'bg-slate-300'}`;
+            document.getElementById('badge-step-2').className = `w-2 h-2 rounded-full ${hasStep2 ? 'bg-emerald-400' : 'bg-slate-300'}`;
+            document.getElementById('badge-step-3').className = `w-2 h-2 rounded-full ${hasStep3 ? 'bg-emerald-400' : 'bg-slate-300'}`;
+        }
+
+        // =========================================================================
+        // SMART 45-MINUTE TIMER & MILESTONE NOTIFICATIONS
+        // =========================================================================
+        function toggleTimer() {
+            if (isRunning) {
+                clearInterval(timerInterval);
+                isRunning = false;
+                document.getElementById('icon-play').classList.remove('hidden');
+                document.getElementById('icon-pause').classList.add('hidden');
+                document.getElementById('btn-timer-text').textContent = 'Resume';
+                document.getElementById('phase-indicator-dot').classList.remove('animate-pulse');
+            } else {
+                isRunning = true;
+                document.getElementById('icon-play').classList.add('hidden');
+                document.getElementById('icon-pause').classList.remove('hidden');
+                document.getElementById('btn-timer-text').textContent = 'Pause';
+                document.getElementById('phase-indicator-dot').classList.add('animate-pulse');
+
+                timerInterval = setInterval(() => {
+                    if (remainingSeconds > 0) {
+                        remainingSeconds--;
+                        updateTimerDisplay();
+                        checkPhaseMilestones();
+                    } else {
+                        clearInterval(timerInterval);
+                        isRunning = false;
+                        showToast("Time is up (45:00)! Complete your final C1 check and export your worksheet.", "info");
+                    }
+                }, 1000);
+            }
+        }
+
+        function resetTimer() {
+            clearInterval(timerInterval);
+            isRunning = false;
+            remainingSeconds = TOTAL_SECONDS;
+            lastNotifiedPhase = 1;
+            document.getElementById('icon-play').classList.remove('hidden');
+            document.getElementById('icon-pause').classList.add('hidden');
+            document.getElementById('btn-timer-text').textContent = 'Start';
+            document.getElementById('phase-indicator-dot').classList.remove('animate-pulse');
+            updateTimerDisplay();
+            showToast("Timer reset to 45:00.", "neutral");
+        }
+
+        function updateTimerDisplay() {
+            const mins = Math.floor(remainingSeconds / 60);
+            const secs = remainingSeconds % 60;
+            document.getElementById('timer-display').textContent =
+                `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+
+            const elapsedMinutes = (TOTAL_SECONDS - remainingSeconds) / 60;
+            const labelEl = document.getElementById('current-phase-label');
+            const dotEl = document.getElementById('phase-indicator-dot');
+            const pulseClass = isRunning ? ' animate-pulse' : '';
+
+            if (elapsedMinutes < 8) {
+                labelEl.textContent = "Step 1 (0–8m): Note-Sorting & Framing";
+                dotEl.className = "w-2.5 h-2.5 rounded-full bg-[#012169]" + pulseClass;
+            } else if (elapsedMinutes < 15) {
+                labelEl.textContent = "Step 2 (8–15m): Quick Outline";
+                dotEl.className = "w-2.5 h-2.5 rounded-full bg-[#0A3161]" + pulseClass;
+            } else if (elapsedMinutes < 35) {
+                labelEl.textContent = "Step 3 (15–35m): Analytical Writing";
+                dotEl.className = "w-2.5 h-2.5 rounded-full bg-emerald-600" + pulseClass;
+            } else {
+                labelEl.textContent = "Step 4 (35–45m): Proofreading & C1 Check";
+                dotEl.className = "w-2.5 h-2.5 rounded-full bg-[#B31942]" + pulseClass;
+            }
+        }
+
+        function checkPhaseMilestones() {
+            const elapsedSeconds = TOTAL_SECONDS - remainingSeconds;
+            if (elapsedSeconds === 8 * 60 && lastNotifiedPhase < 2) {
+                lastNotifiedPhase = 2;
+                showToast("8 minutes elapsed (37:00 left): move on to Stage 2 — Quick Outline!", "info");
+            } else if (elapsedSeconds === 15 * 60 && lastNotifiedPhase < 3) {
+                lastNotifiedPhase = 3;
+                showToast("15 minutes elapsed (30:00 left): begin Stage 3 — Drafting your analytical paragraph!", "info");
+            } else if (elapsedSeconds === 35 * 60 && lastNotifiedPhase < 4) {
+                lastNotifiedPhase = 4;
+                showToast("Final 10 minutes (10:00 left): proceed to Stage 4 — Proofreading & C1 Self-Assessment!", "info");
+            }
+        }
+
+        // =========================================================================
+        // WRITING TOOLS, WORD COUNTER & CURSOR INSERTION
+        // =========================================================================
+        function countWords(text) {
+            const cleaned = text.trim();
+            if (!cleaned) return 0;
+            return cleaned.split(/\s+/).length;
+        }
+
+        function handleEssayInput() {
+            updateWordCount();
+            updateParagraphCoach();
+            updateSpellingConsistency();
+            saveState();
+        }
+
+        // =========================================================================
+        // LIVE UK / US SPELLING CONSISTENCY DETECTOR
+        // =========================================================================
+        const SPELLING_VARIANT_PAIRS = [
+            { uk: 'civilising', us: 'civilizing', label: 'civilising / civilizing' },
+            { uk: 'decolonisation', us: 'decolonization', label: 'decolonisation / decolonization' },
+            { uk: 'colonisation', us: 'colonization', label: 'colonisation / colonization' },
+            { uk: 'industrialisation', us: 'industrialization', label: 'industrialisation / industrialization' },
+            { uk: 'prioritise', us: 'prioritize', label: 'prioritise / prioritize' },
+            { uk: 'recognise', us: 'recognize', label: 'recognise / recognize' },
+            { uk: 'characterise', us: 'characterize', label: 'characterise / characterize' },
+            { uk: 'favour', us: 'favor', label: 'favour / favor' },
+            { uk: 'behaviour', us: 'behavior', label: 'behaviour / behavior' },
+            { uk: 'colour', us: 'color', label: 'colour / color' },
+            { uk: 'endeavour', us: 'endeavor', label: 'endeavour / endeavor' }
+        ];
+
+        function analyseSpellingConsistency(text) {
+            const source = text || '';
+            const ukFound = [];
+            const usFound = [];
+            const mixedPairs = [];
+
+            SPELLING_VARIANT_PAIRS.forEach(pair => {
+                // Match whole word or word starting with UK/US stem (e.g., behaviour / behaviours, prioritis- / prioritiz-)
+                const ukRegex = new RegExp(`\\b${pair.uk}[a-z]*\\b`, 'gi');
+                const usRegex = new RegExp(`\\b${pair.us}[a-z]*\\b`, 'gi');
+
+                const ukMatches = source.match(ukRegex) || [];
+                const usMatches = source.match(usRegex) || [];
+
+                if (ukMatches.length > 0) {
+                    ukFound.push(...ukMatches.map(m => m.toLowerCase()));
+                }
+                if (usMatches.length > 0) {
+                    usFound.push(...usMatches.map(m => m.toLowerCase()));
+                }
+                if (ukMatches.length > 0 && usMatches.length > 0) {
+                    mixedPairs.push({
+                        pair: pair.label,
+                        ukWords: [...new Set(ukMatches.map(m => m.toLowerCase()))],
+                        usWords: [...new Set(usMatches.map(m => m.toLowerCase()))]
+                    });
+                }
+            });
+
+            const uniqueUk = [...new Set(ukFound)];
+            const uniqueUs = [...new Set(usFound)];
+
+            let status = 'neutral';
+            let badgeText = 'No UK/US variant pairs detected yet';
+            let summaryNote = 'No UK/US variant pairs detected yet — American spelling is accepted if kept consistent throughout.';
+
+            if (uniqueUk.length > 0 && uniqueUs.length > 0) {
+                status = 'mixed';
+                badgeText = 'Mixed UK & US spelling detected — choose one variety and stick to it!';
+                summaryNote = `Mixed UK & US spelling detected (UK: ${uniqueUk.join(', ')} | US: ${uniqueUs.join(', ')}) — choose one variety and stick to it.`;
+            } else if (uniqueUk.length > 0) {
+                status = 'uk';
+                badgeText = 'Consistent UK spelling';
+                summaryNote = `Consistent UK spelling (${uniqueUk.join(', ')})`;
+            } else if (uniqueUs.length > 0) {
+                status = 'us';
+                badgeText = 'Consistent US spelling';
+                summaryNote = `Consistent US spelling (${uniqueUs.join(', ')})`;
+            }
+
+            return {
+                status,
+                badgeText,
+                summaryNote,
+                uniqueUk,
+                uniqueUs,
+                mixedPairs
+            };
+        }
+
+        function updateSpellingConsistency() {
+            const essayText = document.getElementById('essay-editor') ? document.getElementById('essay-editor').value : '';
+            const notesText = [
+                document.getElementById('uk-drivers') ? document.getElementById('uk-drivers').value : '',
+                document.getElementById('uk-tools') ? document.getElementById('uk-tools').value : '',
+                document.getElementById('uk-limits') ? document.getElementById('uk-limits').value : '',
+                document.getElementById('us-drivers') ? document.getElementById('us-drivers').value : '',
+                document.getElementById('us-tools') ? document.getElementById('us-tools').value : '',
+                document.getElementById('us-limits') ? document.getElementById('us-limits').value : '',
+                document.getElementById('thesis-input') ? document.getElementById('thesis-input').value : '',
+                document.getElementById('outline-part1') ? document.getElementById('outline-part1').value : '',
+                document.getElementById('outline-part2') ? document.getElementById('outline-part2').value : ''
+            ].join(' ');
+
+            const essayReport = analyseSpellingConsistency(essayText);
+            const notesReport = analyseSpellingConsistency(notesText);
+
+            const badgeS4 = document.getElementById('spelling-status-badge-s4');
+            const detailsS4 = document.getElementById('spelling-details-s4');
+            const coachBox = document.getElementById('paragraph-coach-box');
+
+            if (badgeS4) {
+                badgeS4.textContent = essayReport.badgeText;
+                if (essayReport.status === 'mixed') {
+                    badgeS4.className = 'text-[11px] font-extrabold px-2.5 py-0.5 rounded-full bg-us-light text-[#B31942] border border-us-border';
+                } else if (essayReport.status === 'uk') {
+                    badgeS4.className = 'text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-royal-light text-[#012169] border border-royal-border';
+                } else if (essayReport.status === 'us') {
+                    badgeS4.className = 'text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800';
+                } else {
+                    badgeS4.className = 'text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-slate-200 text-slate-700';
+                }
+            }
+
+            if (detailsS4) {
+                const lines = [];
+                if (essayReport.status === 'mixed') {
+                    const mixedList = essayReport.mixedPairs
+                        .map(item => `<strong>${escapeHtml(item.pair)}</strong>: found UK (<em>${escapeHtml(item.ukWords.join(', '))}</em>) and US (<em>${escapeHtml(item.usWords.join(', '))}</em>)`)
+                        .join(' ; ');
+                    lines.push(`<div class="text-[#B31942] font-semibold">Mixed words in your paragraph: ${mixedList}. Harmonise them so your paragraph uses either UK or US spelling consistently.</div>`);
+                } else if (essayReport.status === 'uk') {
+                    lines.push(`<div>Detected UK forms in paragraph: <strong>${escapeHtml(essayReport.uniqueUk.join(', '))}</strong>. Keep using UK forms consistently (or switch all variant words to US if preferred).</div>`);
+                } else if (essayReport.status === 'us') {
+                    lines.push(`<div>Detected US forms in paragraph: <strong>${escapeHtml(essayReport.uniqueUs.join(', '))}</strong> (accepted when consistent throughout). Keep using US forms consistently.</div>`);
+                } else {
+                    lines.push(`<div>American English spelling is accepted alongside British English, provided you do not mix UK and US spellings within your piece.</div>`);
+                }
+
+                if (notesReport.status === 'mixed') {
+                    lines.push(`<div class="text-amber-800"><strong>Notes &amp; outline check:</strong> Both UK and US variants appear in your notes/outline (${escapeHtml([...notesReport.uniqueUk, ...notesReport.uniqueUs].join(', '))}) — align them before finalising.</div>`);
+                }
+
+                detailsS4.innerHTML = lines.join('');
+            }
+
+            // Also surface a subtle non-intrusive line inside the Stage 3 Paragraph Coach
+            if (coachBox) {
+                let spellRow = document.getElementById('coach-cue-spelling');
+                if (!spellRow) {
+                    const ul = document.getElementById('paragraph-coach-list');
+                    if (ul) {
+                        spellRow = document.createElement('li');
+                        spellRow.id = 'coach-cue-spelling';
+                        ul.appendChild(spellRow);
+                    }
+                }
+                if (spellRow) {
+                    if (essayReport.status === 'mixed') {
+                        spellRow.className = 'text-[#B31942] font-bold';
+                        spellRow.textContent = `⚠ Mixed UK/US spelling (${[...essayReport.uniqueUk, ...essayReport.uniqueUs].join(', ')}) — pick one variety and stick to it`;
+                    } else if (essayReport.status === 'uk') {
+                        spellRow.className = 'text-emerald-800 font-semibold';
+                        spellRow.textContent = `✓ Consistent UK spelling (${essayReport.uniqueUk.join(', ')})`;
+                    } else if (essayReport.status === 'us') {
+                        spellRow.className = 'text-emerald-800 font-semibold';
+                        spellRow.textContent = `✓ Consistent US spelling (${essayReport.uniqueUs.join(', ')}; accepted if consistent)`;
+                    } else {
+                        spellRow.className = 'text-slate-600';
+                        spellRow.textContent = '○ Spelling consistency: UK or US accepted — do not mix both';
+                    }
+                }
+            }
+        }
+
+        function updateParagraphCoach() {
+            const text = document.getElementById('essay-editor').value.trim();
+            const words = countWords(text);
+            const sentences = text
+                .split(/[.!?]+/)
+                .map(s => s.trim())
+                .filter(Boolean);
+
+            const hasEnoughSentences = sentences.length >= 3;
+            const hasLinkWord = /\b(whereas|conversely|by contrast|nevertheless|consequently|in turn|although|though|however|therefore|thus)\b/i.test(text);
+            const nearTargetCount = words >= 165 && words <= 235;
+
+            let score = 0;
+            const sentEl = document.getElementById('coach-cue-sentences');
+            const connEl = document.getElementById('coach-cue-connector');
+            const lenEl = document.getElementById('coach-cue-length');
+            const pillEl = document.getElementById('coach-summary-pill');
+
+            if (sentEl) {
+                if (hasEnoughSentences) {
+                    score++;
+                    sentEl.className = 'text-emerald-800 font-semibold';
+                    sentEl.textContent = `✓ Multi-sentence development (${sentences.length} sentences detected)`;
+                } else {
+                    sentEl.className = 'text-slate-600';
+                    sentEl.textContent = `○ Multi-sentence development (${sentences.length}/3 sentences detected)`;
+                }
+            }
+
+            if (connEl) {
+                if (hasLinkWord) {
+                    score++;
+                    connEl.className = 'text-emerald-800 font-semibold';
+                    connEl.textContent = '✓ Contrast, concession, or cause-effect link word detected';
+                } else {
+                    connEl.className = 'text-slate-600';
+                    connEl.textContent = '○ Add a link word (whereas, conversely, consequently, in turn...)';
+                }
+            }
+
+            if (lenEl) {
+                if (nearTargetCount) {
+                    score++;
+                    lenEl.className = 'text-emerald-800 font-semibold';
+                    lenEl.textContent = `✓ Word count within working range (${words} words; target 180–220)`;
+                } else {
+                    lenEl.className = 'text-slate-600';
+                    lenEl.textContent = `○ Working range: 165–235 words around 180–220 target (currently ${words})`;
+                }
+            }
+
+            if (pillEl) {
+                pillEl.textContent = `${score}/3 cues`;
+                pillEl.className = score === 3
+                    ? 'text-[10px] font-extrabold px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800'
+                    : 'text-[10px] font-bold px-2 py-0.5 rounded-full bg-slate-200 text-slate-700';
+            }
+        }
+
+        function toggleScaffoldingBalance() {
+            const panel = document.getElementById('scaffolding-balance-panel');
+            const arrow = document.getElementById('scaffolding-balance-arrow');
+            if (!panel) return;
+            panel.classList.toggle('hidden');
+            if (arrow) {
+                arrow.textContent = panel.classList.contains('hidden') ? '▸' : '▾';
+            }
+        }
+
+        function toggleCrossVideoCheck() {
+            const panel = document.getElementById('cross-video-check-panel');
+            const icon = document.getElementById('cross-video-check-icon');
+            const feedback = document.getElementById('cross-video-check-feedback');
+            if (!panel) return;
+
+            panel.classList.toggle('hidden');
+            const isOpen = !panel.classList.contains('hidden');
+            if (icon) icon.textContent = isOpen ? '☑' : '☐';
+
+            const ukCount = [
+                document.getElementById('uk-drivers').value.trim(),
+                document.getElementById('uk-tools').value.trim(),
+                document.getElementById('uk-limits').value.trim()
+            ].filter(Boolean).length;
+
+            const usCount = [
+                document.getElementById('us-drivers').value.trim(),
+                document.getElementById('us-tools').value.trim(),
+                document.getElementById('us-limits').value.trim()
+            ].filter(Boolean).length;
+
+            const thesis = document.getElementById('thesis-input').value.trim();
+            const linksBoth = /\b(both|british|uk|empire|american|us|united states|whereas|while|although|compare|comparing|contrast)\b/i.test(thesis);
+
+            if (feedback) {
+                if (ukCount > 0 && usCount > 0 && linksBoth) {
+                    feedback.textContent = `Good foundation: you have notes for both empires (${ukCount}/3 UK boxes, ${usCount}/3 US boxes) and a comparative framing sentence. Check that your thesis states both a shared dynamic and a point of contrast.`;
+                } else if (ukCount > 0 && usCount > 0) {
+                    feedback.textContent = `You have started both sides (${ukCount}/3 UK boxes, ${usCount}/3 US boxes). Now refine your one-sentence framing so it explicitly puts the two imperial trajectories in dialogue rather than treating them in isolation.`;
+                } else {
+                    feedback.textContent = `Currently at ${ukCount}/3 UK boxes and ${usCount}/3 US boxes. Aim for key notes on both empires so your framing sentence compares two powers rather than describing one.`;
+                }
+            }
+        }
+
+        function syncFromFinalEditor() {
+            const val = document.getElementById('final-review-editor').value;
+            document.getElementById('essay-editor').value = val;
+            updateWordCount();
+            updateParagraphCoach();
+            updateSpellingConsistency();
+            renderFinalPreview();
+            saveState();
+        }
+
+        function updateWordCount() {
+            const text = document.getElementById('essay-editor').value;
+            const words = countWords(text);
+
+            document.getElementById('word-count-number').textContent = words;
+            document.getElementById('final-word-badge').textContent = `${words} words (target: 180–220)`;
+
+            const bar = document.getElementById('word-count-bar');
+            const status = document.getElementById('word-count-status');
+            const percentage = Math.min(100, Math.round((words / 220) * 100));
+            bar.style.width = `${percentage}%`;
+
+            if (words === 0) {
+                bar.className = 'h-full bg-slate-400 transition-all duration-300';
+                status.className = 'px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-slate-200 text-slate-700';
+                status.textContent = 'Awaiting draft (target: 180–220 words)';
+            } else if (words < 180) {
+                bar.className = 'h-full bg-[#012169] transition-all duration-300';
+                status.className = 'px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-royal-light text-[#012169] border border-royal-border';
+                status.textContent = `Under target (${180 - words} more words needed)`;
+            } else if (words <= 220) {
+                bar.className = 'h-full bg-emerald-600 transition-all duration-300';
+                status.className = 'px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-emerald-100 text-emerald-800';
+                status.textContent = 'On target (180–220 words) ✓';
+            } else {
+                bar.className = 'h-full bg-[#B31942] transition-all duration-300';
+                status.className = 'px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-us-light text-[#B31942] border border-us-border';
+                status.textContent = `Over target (+${words - 220} words) — tighten if possible`;
+            }
+        }
+
+        function insertAtCursor(elementId, textToInsert) {
+            const el = document.getElementById(elementId);
+            if (!el) return;
+            const start = el.selectionStart || 0;
+            const end = el.selectionEnd || 0;
+            const currentVal = el.value;
+
+            const prefix = (start > 0 && !/\s$/.test(currentVal.slice(0, start))) ? ' ' : '';
+            const insertion = prefix + textToInsert;
+
+            el.value = currentVal.slice(0, start) + insertion + currentVal.slice(end);
+            el.focus();
+            const newPos = start + insertion.length;
+            el.setSelectionRange(newPos, newPos);
+
+            if (elementId === 'essay-editor') {
+                handleEssayInput();
+            } else {
+                saveState();
+            }
+        }
+
+        function importThesisToEssay() {
+            const thesis = document.getElementById('thesis-input').value.trim();
+            if (!thesis) {
+                showToast("You have not drafted a thesis statement in Stage 1 yet.", "neutral");
+                return;
+            }
+            const editor = document.getElementById('essay-editor');
+            if (editor.value.includes(thesis)) {
+                showToast("Your opening sentence is already present in the editor.", "neutral");
+                return;
+            }
+            editor.value = thesis + (editor.value ? '\n' + editor.value : ' ');
+            handleEssayInput();
+            showToast("Opening thesis inserted into your paragraph.", "success");
+        }
+
+        function switchSidebarTab(tab) {
+            const lexBtn = document.getElementById('tab-lexicon');
+            const notesBtn = document.getElementById('tab-notes');
+            const lexPanel = document.getElementById('sidebar-lexicon');
+            const notesPanel = document.getElementById('sidebar-notes');
+
+            if (tab === 'lexicon') {
+                lexBtn.className = 'py-1.5 px-2 rounded-lg bg-white text-[#012169] font-extrabold text-xs shadow-2xs transition';
+                notesBtn.className = 'py-1.5 px-2 rounded-lg text-slate-600 hover:text-slate-900 font-semibold text-xs transition';
+                lexPanel.classList.remove('hidden');
+                notesPanel.classList.add('hidden');
+            } else {
+                notesBtn.className = 'py-1.5 px-2 rounded-lg bg-white text-[#012169] font-extrabold text-xs shadow-2xs transition';
+                lexBtn.className = 'py-1.5 px-2 rounded-lg text-slate-600 hover:text-slate-900 font-semibold text-xs transition';
+                notesPanel.classList.remove('hidden');
+                lexPanel.classList.add('hidden');
+            }
+        }
+
+        function toggleHintsBox() {
+            const box = document.getElementById('hints-box');
+            box.classList.toggle('hidden');
+        }
+
+        // =========================================================================
+        // STAGE 4: PREVIEW HIGHLIGHTER, SELF-ASSESSMENT & EXPORT
+        // =========================================================================
+        function escapeHtml(str) {
+            return str
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#039;");
+        }
+
+        function renderFinalPreview() {
+            const previewBox = document.getElementById('final-preview-box');
+            const rawText = document.getElementById('essay-editor').value;
+
+            if (!rawText.trim()) {
+                previewBox.innerHTML = '<span class="font-sans italic text-slate-400">Your analytical paragraph will appear here once drafted in Stage 3...</span>';
+                return;
+            }
+
+            let safeHtml = escapeHtml(rawText);
+            const keywordsInput = document.getElementById('key-expressions').value;
+            const terms = keywordsInput
+                .split(',')
+                .map(t => t.trim())
+                .filter(t => t.length >= 3);
+
+            if (terms.length > 0) {
+                // Sort longest first to avoid partial nested replacements
+                terms.sort((a, b) => b.length - a.length);
+                terms.forEach(term => {
+                    const escapedTerm = escapeHtml(term).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+                    const regex = new RegExp(`(${escapedTerm})`, 'gi');
+                    safeHtml = safeHtml.replace(regex, '<mark class="reinvested-highlight">$1</mark>');
+                });
+            }
+
+            previewBox.innerHTML = safeHtml;
+        }
+
+        function handleKeywordHighlight() {
+            renderFinalPreview();
+            saveState();
+        }
+
+        function toggleQuickEdit() {
+            isQuickEditOpen = !isQuickEditOpen;
+            const previewBox = document.getElementById('final-preview-box');
+            const editorBox = document.getElementById('final-review-editor');
+            const btn = document.getElementById('btn-toggle-edit');
+
+            if (isQuickEditOpen) {
+                previewBox.classList.add('hidden');
+                editorBox.classList.remove('hidden');
+                btn.textContent = 'Done editing ✓';
+                editorBox.focus();
+            } else {
+                editorBox.classList.add('hidden');
+                previewBox.classList.remove('hidden');
+                btn.textContent = 'Make quick edits ✎';
+                renderFinalPreview();
+            }
+        }
+
+        function updateChecklistScore() {
+            const checks = document.querySelectorAll('.c1-check');
+            let checkedCount = 0;
+            checks.forEach(c => { if (c.checked) checkedCount++; });
+
+            const badge = document.getElementById('checklist-score');
+            badge.textContent = `${checkedCount} / ${checks.length} criteria met`;
+            if (checkedCount === checks.length) {
+                badge.className = 'text-xs font-extrabold px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800';
+            } else {
+                badge.className = 'text-xs font-bold px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700';
+            }
+            document.getElementById('badge-step-4').className = `w-2 h-2 rounded-full ${checkedCount >= 4 ? 'bg-emerald-400' : 'bg-slate-300'}`;
+            saveState();
+        }
+
+        function copyFinalEssay() {
+            const text = document.getElementById('essay-editor').value.trim();
+            if (!text) {
+                showToast("Your paragraph is currently empty. Draft your text before copying.", "neutral");
+                return;
+            }
+            const studentName = document.getElementById('student-name').value.trim();
+            const words = countWords(text);
+            const spelling = analyseSpellingConsistency(text);
+            const pearltreesText = [
+                studentName ? `Student / Class: ${studentName}` : '',
+                `Word count: ${words} words (target: 180–220 words)`,
+                `Spelling consistency: ${spelling.summaryNote}`,
+                '',
+                text,
+                '',
+                buildPearltreesAuditBlock()
+            ].filter((line, index, arr) => !(line === '' && arr[index - 1] === '')).join('\n');
+
+            const helper = document.getElementById('clipboard-helper');
+            helper.value = pearltreesText;
+            helper.select();
+            try {
+                document.execCommand('copy');
+                showToast(`Copied paragraph + Pearltrees tab-exit log (${tabExitCount} exit${tabExitCount === 1 ? '' : 's'}) to clipboard!`, "success");
+            } catch (err) {
+                showToast("Please select the text manually and press Ctrl+C / Cmd+C.", "neutral");
+            }
+        }
+
+        function downloadFullReport() {
+            const studentName = document.getElementById('student-name').value.trim() || 'Not specified';
+            const essay = document.getElementById('essay-editor').value.trim();
+            const thesis = document.getElementById('thesis-input').value.trim();
+            const uk1 = document.getElementById('uk-drivers').value.trim();
+            const uk2 = document.getElementById('uk-tools').value.trim();
+            const uk3 = document.getElementById('uk-limits').value.trim();
+            const us1 = document.getElementById('us-drivers').value.trim();
+            const us2 = document.getElementById('us-tools').value.trim();
+            const us3 = document.getElementById('us-limits').value.trim();
+            const part1 = document.getElementById('outline-part1').value.trim();
+            const part2 = document.getElementById('outline-part2').value.trim();
+            const keyExp = document.getElementById('key-expressions').value.trim();
+            const words = countWords(essay);
+            const spelling = analyseSpellingConsistency(essay);
+
+            const criteriaLabels = [
+                "1. Genuine cross-referencing of both videos",
+                "2. Conceptual precision (economic, strategic & ideological levers)",
+                "3. Nuanced & balanced argumentation",
+                "4. Syntactic variety & consistent spelling (UK or US throughout)",
+                "5. Target word count compliance (180–220 words)"
+            ];
+            const checklistLines = criteriaLabels.map((label, idx) => {
+                const isChecked = document.getElementById(`chk-${idx + 1}`).checked;
+                return `[${isChecked ? 'X' : ' '}] ${label}`;
+            });
+
+            const content = [
+                "====================================================================",
+                "TERMINALE AMC — COMPARATIVE ANALYTICAL PARAGRAPH & CONTEMPORARY ECHO",
+                "====================================================================",
+                `Student / Class: ${studentName}`,
+                `Word Count: ${words} words (Target: 180–220 words)`,
+                `Spelling Consistency: ${spelling.summaryNote}`,
+                `Browser Tab Exits Recorded: ${tabExitCount}`,
+                "",
+                "1. COMPARATIVE NOTES (STAGE 1)",
+                "--- Video 1: The British Empire (1440 Originals) ---",
+                `- Drivers of expansion: ${uk1 || 'N/A'}`,
+                `- Instruments of control: ${uk2 || 'N/A'}`,
+                `- Decline & post-imperial legacy: ${uk3 || 'N/A'}`,
+                "",
+                "--- Video 2: American Imperialism (Objective 3.1) ---",
+                `- Drivers of expansion: ${us1 || 'N/A'}`,
+                `- Instruments & flashpoints: ${us2 || 'N/A'}`,
+                `- Shift & strategic evolution: ${us3 || 'N/A'}`,
+                "",
+                `Comparative Thesis Statement: ${thesis || 'N/A'}`,
+                "",
+                "2. TWO-PART ANALYTICAL OUTLINE (STAGE 2)",
+                "Movement 1 — Convergences & Structural Differences:",
+                part1 || "N/A",
+                "",
+                "Movement 2 — Contemporary Echoes & Post-Imperial Legacies:",
+                part2 || "N/A",
+                "",
+                "====================================================================",
+                `3. FINAL ANALYTICAL PARAGRAPH (${words} WORDS)`,
+                "====================================================================",
+                "",
+                essay || "(No paragraph drafted)",
+                "",
+                "====================================================================",
+                "4. C1 SELF-ASSESSMENT & REINVESTED LEXICON",
+                "====================================================================",
+                ...checklistLines,
+                "",
+                `Reinvested Geopolitical Terminology: ${keyExp || 'None listed'}`,
+                "",
+                buildPearltreesAuditBlock(),
+                "===================================================================="
+            ].join("\n");
+
+            const blob = new Blob([content], { type: 'text/plain;charset=utf-8' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'AMC_Comparative_Worksheet.txt';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+
+            showToast("Complete worksheet downloaded (AMC_Comparative_Worksheet.txt).", "success");
+        }
+
+        // Two-step inline confirmation for resetting work (no browser confirm() popup)
+        function handleResetRequest() {
+            const btnAsk = document.getElementById('btn-reset-all');
+            const btnConfirm = document.getElementById('btn-reset-confirm');
+            btnAsk.classList.add('hidden');
+            btnConfirm.classList.remove('hidden');
+
+            clearTimeout(resetConfirmTimeout);
+            resetConfirmTimeout = setTimeout(() => {
+                btnConfirm.classList.add('hidden');
+                btnAsk.classList.remove('hidden');
+            }, 4000);
+        }
+
+        function executeResetAllWork() {
+            clearTimeout(resetConfirmTimeout);
+            const inputs = ['student-name', 'uk-drivers', 'uk-tools', 'uk-limits', 'us-drivers', 'us-tools', 'us-limits', 'thesis-input', 'outline-part1', 'outline-part2', 'essay-editor', 'final-review-editor', 'key-expressions'];
+            inputs.forEach(id => {
+                document.getElementById(id).value = '';
+            });
+            document.querySelectorAll('.c1-check').forEach(c => c.checked = false);
+            tabExitCount = 0;
+            tabExitLogs = [];
+            lastTabExitTimestamp = 0;
+            updateTabExitUI();
+            try { localStorage.removeItem(STORAGE_KEY); } catch (e) {}
+            
+            document.getElementById('btn-reset-confirm').classList.add('hidden');
+            document.getElementById('btn-reset-all').classList.remove('hidden');
+            
+            updateWordCount();
+            updateChecklistScore();
+            updateCompletionBadges();
+            updateWordCount();
+            updateParagraphCoach();
+            updateSpellingConsistency();
+            updateChecklistScore();
+            updateCompletionBadges();
+            renderFinalPreview();
+            goToStep(1);
+            showToast("All fields and saved data have been cleared.", "neutral");
+        }
+
+        // =========================================================================
+        // NON-INTRUSIVE TOAST NOTIFICATIONS
+        // =========================================================================
+        function showToast(message, type = "neutral") {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+
+            let colors = "bg-slate-900 text-white border-slate-700";
+            if (type === "success") colors = "bg-emerald-900 text-emerald-50 border-emerald-700";
+            if (type === "info") colors = "bg-[#012169] text-white border-blue-400";
+
+            toast.className = `pointer-events-auto px-4 py-3 rounded-xl border shadow-lg text-xs font-semibold flex items-center gap-2.5 transition-all duration-300 transform translate-y-2 opacity-0 ${colors}`;
+            toast.innerHTML = `<span>${message}</span>`;
+
+            container.appendChild(toast);
+            requestAnimationFrame(() => {
+                toast.classList.remove('translate-y-2', 'opacity-0');
+            });
+
+            setTimeout(() => {
+                toast.classList.add('opacity-0', 'translate-y-2');
+                setTimeout(() => toast.remove(), 300);
+            }, 4200);
+        }
+    </script>
+</body>
+</html>
